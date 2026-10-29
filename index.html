@@ -1,0 +1,1498 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Shanghai"><meta name="theme-color" content="#FCE2EE"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" href="icon-192.png"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Shanghai Trip 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+SC:wght@500;700&display=swap">
+<style>
+/* Layout: one-column phone app with a bottom tab bar; every tab has its own pastel colour; each day is drawn as a metro line with sticker stops */
+:root {
+  --ink: #4A2B3B;
+  --muted: #8D6B7C;
+  --surface: #FFFFFF;
+  --sunk: #FBEFF4;
+  --rule: #F2DCE6;
+  --seal: #D2455A;
+  --seal-soft: #FDE3E7;
+  --shadow: 0 6px 18px -10px rgba(190, 90, 130, .45);
+  /* per-tab pastel pairs: accent / soft / page */
+  --home-a: #D9558A; --home-s: #FCE2EE; --home-bg: #FFF4F8;
+  --plan-a: #8C62CF; --plan-s: #EEE5FB; --plan-bg: #FAF6FF;
+  --fly-a:  #3D8CCB; --fly-s:  #E0EFFB; --fly-bg:  #F4F9FF;
+  --stay-a: #2E9B7C; --stay-s: #DBF2EA; --stay-bg: #F3FBF8;
+  --pay-a:  #DE7148; --pay-s:  #FDE5DA; --pay-bg:  #FFF7F3;
+  --prep-a: #B88A12; --prep-s: #FAF0CF; --prep-bg: #FFFCF1;
+  --zh-a:   #CF4256; --zh-s:   #FBE1E5; --zh-bg:   #FFF6F7;
+  --sea: #E2649A; --sea-s: #FDE1EC;
+  --fluke: #3F8FD0; --fluke-s: #DDEDFB;
+  --f-display: "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-body: "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --f-zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --accent: var(--home-a); --accent-soft: var(--home-s); --bg: var(--home-bg);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #F8E7EF; --muted: #C6A5B5; --surface: #2B1F26; --sunk: #36272F; --rule: #4A3540;
+    --seal: #FF8394; --seal-soft: #4A2229; --shadow: 0 6px 18px -10px rgba(0, 0, 0, .6);
+    --home-a: #FF9DC5; --home-s: #4B2536; --home-bg: #1F161B;
+    --plan-a: #C6A8F6; --plan-s: #34294A; --plan-bg: #1B1720;
+    --fly-a:  #8EC8F5; --fly-s:  #1F3447; --fly-bg:  #151A20;
+    --stay-a: #7FD8B9; --stay-s: #1C3A31; --stay-bg: #141C19;
+    --pay-a:  #FFB08E; --pay-s:  #462A1F; --pay-bg:  #1F1714;
+    --prep-a: #F0CE68; --prep-s: #3D3418; --prep-bg: #1C1A12;
+    --zh-a:   #FF8E9C; --zh-s:   #4A2228; --zh-bg:   #1F1517;
+    --sea: #FF9DC5; --sea-s: #4B2536; --fluke: #8EC8F5; --fluke-s: #1F3447;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #F8E7EF; --muted: #C6A5B5; --surface: #2B1F26; --sunk: #36272F; --rule: #4A3540;
+  --seal: #FF8394; --seal-soft: #4A2229; --shadow: 0 6px 18px -10px rgba(0, 0, 0, .6);
+  --home-a: #FF9DC5; --home-s: #4B2536; --home-bg: #1F161B;
+  --plan-a: #C6A8F6; --plan-s: #34294A; --plan-bg: #1B1720;
+  --fly-a:  #8EC8F5; --fly-s:  #1F3447; --fly-bg:  #151A20;
+  --stay-a: #7FD8B9; --stay-s: #1C3A31; --stay-bg: #141C19;
+  --pay-a:  #FFB08E; --pay-s:  #462A1F; --pay-bg:  #1F1714;
+  --prep-a: #F0CE68; --prep-s: #3D3418; --prep-bg: #1C1A12;
+  --zh-a:   #FF8E9C; --zh-s:   #4A2228; --zh-bg:   #1F1517;
+  --sea: #FF9DC5; --sea-s: #4B2536; --fluke: #8EC8F5; --fluke-s: #1F3447;
+  color-scheme: dark;
+}
+body[data-tab="home"] { --accent: var(--home-a); --accent-soft: var(--home-s); --bg: var(--home-bg); }
+body[data-tab="plan"] { --accent: var(--plan-a); --accent-soft: var(--plan-s); --bg: var(--plan-bg); }
+body[data-tab="fly"]  { --accent: var(--fly-a);  --accent-soft: var(--fly-s);  --bg: var(--fly-bg); }
+body[data-tab="stay"] { --accent: var(--stay-a); --accent-soft: var(--stay-s); --bg: var(--stay-bg); }
+body[data-tab="pay"]  { --accent: var(--pay-a);  --accent-soft: var(--pay-s);  --bg: var(--pay-bg); }
+body[data-tab="prep"] { --accent: var(--prep-a); --accent-soft: var(--prep-s); --bg: var(--prep-bg); }
+body[data-tab="zh"]   { --accent: var(--zh-a);   --accent-soft: var(--zh-s);   --bg: var(--zh-bg); }
+
+/* Chinese phrases */
+.cats { display: flex; gap: 6px; overflow-x: auto; padding: 2px 2px 6px; scrollbar-width: none; }
+.cats button { flex: none; border-color: transparent; box-shadow: var(--shadow); }
+.cats button[aria-pressed="true"] { background: var(--accent); color: var(--surface); font-weight: 600; }
+.phr { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; width: 100%; text-align: left; border-radius: 18px; padding: 12px 14px; border-color: transparent; background: var(--surface); box-shadow: var(--shadow); }
+.phr .th { font-weight: 600; font-size: 14px; color: var(--muted); grid-column: 1; }
+.phr .cn { font-family: var(--f-zh); font-weight: 700; font-size: 24px; line-height: 1.3; grid-column: 1; }
+.phr .rd { font-size: 16px; font-weight: 600; color: var(--accent); grid-column: 1; }
+.phr .py { font-size: 12px; color: var(--muted); grid-column: 1; }
+.phr .say { grid-column: 2; grid-row: 1 / span 4; width: 40px; height: 40px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: 18px; }
+.phr-list { display: flex; flex-direction: column; gap: 10px; }
+.nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.num { display: flex; flex-direction: column; align-items: center; gap: 0; padding: 10px 4px; border-radius: 16px; border-color: transparent; background: var(--surface); box-shadow: var(--shadow); }
+.num .d { font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
+.num .cn { font-family: var(--f-zh); font-weight: 700; font-size: 26px; line-height: 1.2; }
+.num .rd { font-size: 14px; font-weight: 600; color: var(--accent); }
+.tip { background: var(--accent-soft); border-radius: 16px; padding: 10px 14px; font-size: 13px; }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 15px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased; transition: background-color .25s;
+}
+.app {
+  max-width: 560px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 18px calc(100px + env(safe-area-inset-bottom, 0px));
+}
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.25; }
+h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 19px; font-weight: 600; color: var(--accent); }
+h3 { font-size: 16px; font-weight: 600; }
+p { margin: 0; }
+.zh { font-family: var(--f-zh); font-weight: 500; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.eyebrow { font-size: 12px; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.stack-lg { display: flex; flex-direction: column; gap: 18px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.card { background: var(--surface); border-radius: 22px; padding: 16px; box-shadow: var(--shadow); min-width: 0; }
+.ic { width: 1em; height: 1em; flex: none; }
+
+/* header with the two travellers */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+.duo { display: flex; align-items: center; flex: none; }
+.duo .av + .av { margin-left: -14px; }
+.av {
+  --s: 44px; width: var(--s); height: var(--s); border-radius: 50%; flex: none; overflow: hidden;
+  display: inline-grid; place-items: center; font-family: var(--f-display); font-weight: 700; font-size: calc(var(--s) * .4);
+  border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--av-ring, var(--sea));
+}
+.av img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.av.sea { --av-ring: var(--sea); background: var(--sea-s); color: var(--sea); }
+.av.fluke { --av-ring: var(--fluke); background: var(--fluke-s); color: var(--fluke); }
+.hello { font-family: var(--f-display); font-size: 14px; color: var(--accent); font-weight: 600; }
+.top-r { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex: none; }
+.lang-wrap { position: relative; }
+.lang-btn { padding: 5px 10px; gap: 5px; font-weight: 600; color: var(--accent); background: var(--surface); border-color: transparent; box-shadow: var(--shadow); }
+.lang-btn .ic { font-size: 16px; }
+.lang-menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 15; background: var(--surface); border-radius: 16px; box-shadow: 0 10px 30px -12px rgba(120, 60, 90, .55); padding: 6px; display: flex; flex-direction: column; gap: 4px; min-width: 130px; }
+.lang-menu button { border: 0; border-radius: 12px; justify-content: flex-start; padding: 8px 12px; font-size: 14px; }
+.lang-menu button[aria-checked="true"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+body[data-lang="zh"] { font-family: var(--f-zh), var(--f-body); }
+body[data-lang="zh"] h1, body[data-lang="zh"] h2, body[data-lang="zh"] h3 { font-family: var(--f-zh), var(--f-display); }
+body:not([data-lang="th"]) .phr .rd, body:not([data-lang="th"]) .num .rd { display: none; }
+
+/* hero countdown */
+.hero { position: relative; overflow: hidden; background: var(--accent-soft); box-shadow: none; }
+.hero .count { display: flex; align-items: center; gap: 12px; }
+.hero .count b { font-family: var(--f-display); font-size: 50px; line-height: 1; color: var(--accent); }
+.hero .deco { position: absolute; right: -10px; top: -10px; width: 120px; height: 120px; color: var(--accent); opacity: .18; }
+.clocks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.clock { background: var(--surface); border-radius: 16px; padding: 8px 12px; }
+.clock .t { font-family: var(--f-mono); font-size: 24px; font-weight: 600; }
+
+/* app shortcuts */
+.apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.app-tile { display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; color: var(--ink); font-size: 12.5px; font-weight: 600; text-align: center; padding: 10px 4px; border-radius: 18px; background: var(--sunk); }
+.app-tile .sq { width: 46px; height: 46px; border-radius: 15px; display: grid; place-items: center; color: #FFFFFF; font-size: 24px; }
+.app-tile small { font-weight: 400; color: var(--muted); font-size: 11px; line-height: 1.3; }
+.app-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* buttons, chips */
+button, .btn {
+  font: inherit; color: inherit; cursor: pointer; border-radius: 999px;
+  border: 1.5px solid var(--rule); background: var(--surface); padding: 6px 12px; font-size: 13px; font-weight: 500;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+}
+button:focus-visible, .btn:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.btn.go { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+.btn.soft { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--sunk); color: var(--muted); }
+.chip.acc { background: var(--accent-soft); color: var(--accent); }
+.chip.red { background: var(--seal-soft); color: var(--seal); }
+.metro-badge { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: var(--surface); font-family: var(--f-mono); font-size: 11px; font-weight: 600; vertical-align: 2px; }
+
+/* day picker */
+.days { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 6px; margin-bottom: 14px; scrollbar-width: none; }
+.days button { flex: none; border-radius: 18px; padding: 8px 14px; display: flex; flex-direction: column; align-items: flex-start; gap: 0; min-width: 72px; border-color: transparent; box-shadow: var(--shadow); }
+.days button .d { font-family: var(--f-display); font-weight: 700; font-size: 15px; }
+.days button .w { font-size: 11px; color: var(--muted); }
+.days button[aria-pressed="true"] { background: var(--accent); color: var(--surface); }
+.days button[aria-pressed="true"] .w, .days button[aria-pressed="true"] .today { color: var(--surface); }
+.days button .today { font-size: 10px; color: var(--accent); font-weight: 700; }
+.day-head { display: flex; gap: 14px; align-items: center; background: var(--accent-soft); border-radius: 22px; padding: 14px 16px; }
+.day-head .big-ic { width: 54px; height: 54px; border-radius: 18px; background: var(--surface); color: var(--accent); display: grid; place-items: center; font-size: 30px; flex: none; }
+
+/* metro line timeline with sticker stops */
+.line { position: relative; padding-left: 40px; display: flex; flex-direction: column; gap: 14px; }
+.line::before { content: ""; position: absolute; left: 15px; top: 14px; bottom: 14px; width: 4px; border-radius: 3px; background: repeating-linear-gradient(var(--accent) 0 10px, transparent 10px 16px); opacity: .55; }
+.stop { position: relative; min-width: 0; }
+.stop .dot { position: absolute; left: -40px; top: 10px; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: var(--surface); display: grid; place-items: center; font-size: 17px; border: 3px solid var(--bg); }
+.stop.transit .dot { background: var(--surface); color: var(--accent); border-color: var(--accent-soft); }
+.stop .when { font-family: var(--f-mono); font-weight: 600; font-size: 13px; color: var(--accent); }
+.stop.transit .card { background: transparent; box-shadow: none; border: 1.5px dashed var(--rule); }
+.stop ul, .card ul { margin: 6px 0 0; padding-left: 18px; }
+.stop li, .card li { margin: 2px 0; }
+.stop .tools { margin-top: 10px; }
+.steps { counter-reset: s; list-style: none; padding-left: 0 !important; }
+.steps li { counter-increment: s; display: flex; gap: 8px; }
+.steps li::before { content: counter(s); font-family: var(--f-mono); font-size: 11px; font-weight: 600; width: 18px; height: 18px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; flex: none; margin-top: 3px; }
+.note { background: var(--seal-soft); color: var(--seal); border-radius: 14px; padding: 8px 12px; font-size: 13px; font-weight: 500; }
+.price { font-family: var(--f-mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+.spots { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-top: 8px; }
+.spot { background: var(--sunk); border-radius: 14px; padding: 8px 10px; font-size: 13px; min-width: 0; text-decoration: none; color: var(--ink); display: block; }
+.spot .zh { display: block; font-size: 12px; color: var(--muted); }
+.spot .pic { float: right; color: var(--accent); font-size: 14px; margin-left: 4px; }
+
+/* boarding pass */
+.pass { padding: 0; overflow: hidden; }
+.pass .head { display: flex; justify-content: space-between; gap: 8px; padding: 12px 16px; background: var(--accent-soft); color: var(--accent); font-size: 13px; flex-wrap: wrap; }
+.pass .route { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; padding: 16px; }
+.pass .code { font-family: var(--f-mono); font-size: 30px; font-weight: 600; line-height: 1; }
+.pass .time { font-family: var(--f-mono); font-size: 18px; font-weight: 600; color: var(--accent); }
+.pass .end { text-align: right; }
+.pass .mid { text-align: center; font-size: 12px; color: var(--muted); }
+.pass .mid .ic { display: block; margin: 4px auto; font-size: 24px; color: var(--accent); }
+.pass .tear { border-top: 2px dashed var(--rule); margin: 0 16px; }
+.pass .foot { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px 16px 16px; font-size: 13px; }
+.pass .foot b { display: block; font-family: var(--f-mono); font-size: 15px; }
+.layover { text-align: center; font-size: 13px; color: var(--accent); font-weight: 500; background: var(--accent-soft); border-radius: 14px; padding: 8px 12px; }
+
+/* key-value */
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 14px; margin-top: 4px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.hotel-top { display: flex; gap: 14px; align-items: center; }
+.hotel-top .big-ic { width: 54px; height: 54px; border-radius: 18px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: 28px; flex: none; }
+
+/* checklist */
+.check { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed var(--rule); cursor: pointer; }
+.check:last-child { border-bottom: 0; }
+.check input { width: 20px; height: 20px; accent-color: var(--accent); margin: 2px 0 0; flex: none; }
+.check.done span { text-decoration: line-through; color: var(--muted); }
+
+/* converter + form fields */
+.conv { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.conv label, .form label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 4px; }
+.field { width: 100%; font: inherit; padding: 9px 12px; border-radius: 14px; border: 1.5px solid var(--rule); background: var(--bg); color: var(--ink); }
+.field.amt { font: 600 20px var(--f-mono); }
+
+/* expenses */
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.form .full { grid-column: 1 / -1; }
+.thb-out { font: 600 20px var(--f-mono); padding: 9px 0; color: var(--accent); }
+.seg { display: flex; gap: 6px; flex-wrap: wrap; }
+.seg button { flex: 1; justify-content: center; padding: 8px 10px; background: var(--bg); border-color: var(--rule); }
+.seg button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+.payer button { padding: 6px 10px 6px 6px; }
+.payer .av { --s: 30px; border-width: 2px; }
+.split-row { display: flex; gap: 10px; align-items: center; }
+.split-row input[type=range] { flex: 1; accent-color: var(--accent); min-width: 0; }
+.split-lbl { font-family: var(--f-mono); font-size: 13px; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+.split-lbl .av { --s: 26px; border-width: 2px; }
+.sum { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sum .p { background: var(--sunk); border-radius: 18px; padding: 12px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.sum .p .row { gap: 8px; flex-wrap: nowrap; }
+.sum .p b { font: 600 18px var(--f-mono); }
+.settle { font-family: var(--f-display); font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.settle .mono { color: var(--accent); }
+.exp { display: grid; grid-template-columns: auto 1fr auto; gap: 2px 10px; padding: 12px 0; border-bottom: 1px dashed var(--rule); align-items: start; }
+.exp:last-child { border-bottom: 0; }
+.exp .av { --s: 34px; border-width: 2px; grid-row: span 2; }
+.exp .amt-c { text-align: right; font: 600 15px var(--f-mono); }
+.exp .amt-t { text-align: right; font-size: 12px; color: var(--muted); font-family: var(--f-mono); }
+.exp .acts { grid-column: 2 / -1; display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+.exp .acts button { padding: 3px 10px; font-size: 12px; }
+.danger { color: var(--seal) !important; border-color: var(--seal) !important; }
+
+/* tab bar */
+nav.tabs {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 5;
+  background: var(--surface); box-shadow: 0 -6px 20px -14px rgba(120, 60, 90, .5);
+  border-radius: 22px 22px 0 0;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px);
+}
+nav.tabs .in { max-width: 560px; margin: 0 auto; display: grid; grid-template-columns: repeat(7, 1fr); }
+nav.tabs button { border: 0; border-radius: 0; background: none; flex-direction: column; gap: 3px; padding: 9px 0 8px; font-size: 11px; color: var(--muted); min-width: 0; white-space: nowrap; }
+nav.tabs button .pill { width: 40px; height: 30px; border-radius: 999px; display: grid; place-items: center; font-size: 21px; transition: background-color .2s; }
+nav.tabs button[aria-selected="true"] { color: var(--accent); font-weight: 600; }
+nav.tabs button[aria-selected="true"] .pill { background: var(--accent-soft); }
+
+/* booking documents */
+.docs { display: flex; flex-direction: column; gap: 8px; }
+.doc-btn { width: 100%; justify-content: flex-start; gap: 12px; padding: 10px 12px; border-radius: 16px; background: var(--sunk); border-color: transparent; text-align: left; }
+.doc-btn .big-ic { width: 38px; height: 38px; border-radius: 12px; background: var(--surface); color: var(--accent); display: grid; place-items: center; font-size: 20px; flex: none; }
+.doc-btn .av { --s: 38px; border-width: 2px; }
+.doc-btn b { display: block; font-size: 14px; }
+.doc-btn small { color: var(--muted); font-size: 12px; }
+.doc-btn .go-ic { margin-left: auto; color: var(--accent); font-weight: 600; font-size: 13px; white-space: nowrap; }
+.docview { position: fixed; inset: 0; z-index: 30; background: var(--bg); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.docview .bar { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--surface); box-shadow: var(--shadow);
+  padding: calc(10px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)); }
+.docview .bar h3 { min-width: 0; }
+.docview .pages { display: flex; flex-direction: column; gap: 12px; padding: 12px max(8px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); max-width: 900px; margin: 0 auto; }
+.docview .pages img { width: 100%; height: auto; display: block; background: #FFFFFF; border-radius: 8px; box-shadow: var(--shadow); }
+
+/* driver card overlay */
+.overlay { position: fixed; inset: 0; z-index: 20; background: var(--bg); display: flex; flex-direction: column; justify-content: center; gap: 20px;
+  padding: calc(24px + env(safe-area-inset-top, 0px)) max(24px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(24px, env(safe-area-inset-left, 0px)); }
+.overlay .big { font-family: var(--f-zh); font-weight: 700; font-size: clamp(30px, 9vw, 52px); line-height: 1.3; }
+.overlay .addr { font-family: var(--f-zh); font-size: 20px; }
+@media (prefers-reduced-motion: no-preference) {
+  .view { animation: pop .22s ease-out; }
+  .app-tile:active, .btn:active { transform: scale(.96); }
+}
+@keyframes pop { from { opacity: .5; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+</style>
+
+<!-- cute sticker icons, drawn once and reused -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path fill="currentColor" d="M21 15.5v-1.8l-7.6-4.6V4a1.4 1.4 0 0 0-2.8 0v5.1L3 13.7v1.8l7.6-2.3v4.6l-2 1.5v1.4L12 19.8l3.4.9v-1.4l-2-1.5v-4.6z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path fill="currentColor" d="M3 7a1 1 0 0 1 2 0v6h6V9.5A1.5 1.5 0 0 1 12.5 8H18a3 3 0 0 1 3 3v8a1 1 0 0 1-2 0v-2H5v2a1 1 0 0 1-2 0z"/><circle fill="currentColor" cx="7.5" cy="10.5" r="2"/></symbol>
+    <symbol id="i-bowl" viewBox="0 0 24 24"><path fill="currentColor" d="M3 11.5h18a9 9 0 0 1-6 8.4V21H9v-1.1a9 9 0 0 1-6-8.4z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M14 3.5 8 10M19 4.5l-7 5.5"/></symbol>
+    <symbol id="i-tea" viewBox="0 0 24 24"><path fill="currentColor" d="M5.5 8h13l-1.6 12.2a1 1 0 0 1-1 .8H8.1a1 1 0 0 1-1-.8z"/><rect fill="currentColor" x="4.5" y="6" width="15" height="2.4" rx="1.2"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 6 14.5 2"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path fill="currentColor" d="M8.5 5.5 9.7 4h4.6l1.2 1.5H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7.5a2 2 0 0 1 2-2zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><circle fill="currentColor" cx="12" cy="13" r="2"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path fill="currentColor" d="M5.2 8h13.6l-.9 12a1 1 0 0 1-1 1H7.1a1 1 0 0 1-1-1z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M9 10V6.5a3 3 0 0 1 6 0V10"/></symbol>
+    <symbol id="i-train" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2.5h10a3 3 0 0 1 3 3V15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V5.5a3 3 0 0 1 3-3zM6.5 6v4.5h11V6zM8 15.8a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6zm8 0a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M8 21.5l2-3M16 21.5l-2-3"/></symbol>
+    <symbol id="i-castle" viewBox="0 0 24 24"><path fill="currentColor" d="M3 21V11l2.5-3L8 11V7.5L12 2l4 5.5V11l2.5-3L21 11v10h-6.5v-3.5a2.5 2.5 0 0 0-5 0V21z"/></symbol>
+    <symbol id="i-art" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18c1.3 0 2-.8 2-1.8 0-.5-.2-.9-.5-1.2a1.7 1.7 0 0 1 1.3-2.9H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3zM7.5 12.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.3 6.2 6.2 2.3-6.2 2.3L12 19.5l-2.3-6.2-6.2-2.3 6.2-2.3z"/><circle fill="currentColor" cx="19" cy="19" r="1.6"/><circle fill="currentColor" cx="5" cy="4.5" r="1.2"/></symbol>
+    <symbol id="i-tower" viewBox="0 0 24 24"><circle fill="currentColor" cx="12" cy="13" r="3.2"/><circle fill="currentColor" cx="12" cy="6.3" r="2"/><path fill="currentColor" d="M11.3 1h1.4v3h-1.4zM11 8h2v2h-2zM11 16h2v2h-2zM8.6 15.5l1.6.9L7.5 22H5.6zM15.4 15.5l-1.6.9 2.7 5.6h1.9z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle fill="currentColor" cx="12" cy="12" r="4.5"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2.5 11h2.5v9.5h5.5v-6h3v6H19V11h2.5z"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6.5A2.5 2.5 0 0 1 6.5 4H18v3h1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6.5A2.5 2.5 0 0 1 4 17.5zM6.5 6a.5.5 0 0 0 0 1H16V6zM17 15a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path fill="currentColor" d="M7 3h10a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path fill="none" stroke="var(--surface)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8.5 9l1.5 1.5L13 7.5M8.5 15h7"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle fill="currentColor" cx="6" cy="18" r="3"/><path fill="currentColor" d="M18 2a4 4 0 0 0-4 4c0 3 4 7 4 7s4-4 4-7a4 4 0 0 0-4-4zm0 5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2 3" d="M9 18h5a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h1"/></symbol>
+    <symbol id="i-pay" viewBox="0 0 24 24"><rect fill="currentColor" x="3" y="3" width="8" height="8" rx="2"/><rect fill="currentColor" x="13" y="3" width="8" height="8" rx="2"/><rect fill="currentColor" x="3" y="13" width="8" height="8" rx="2"/><path fill="currentColor" d="M13 13h3v3h-3zM18 13h3v3h-3zM13 18h3v3h-3zM18 18h3v3h-3z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="currentColor" d="M9.5 3C5.4 3 2 5.8 2 9.3c0 2 1.1 3.7 2.8 4.9L4 17l3.2-1.6c.7.2 1.5.3 2.3.3h.4a5.8 5.8 0 0 1-.2-1.5c0-3.7 3.5-6.6 7.8-6.6h.4C17.2 4.9 13.7 3 9.5 3z"/><path fill="currentColor" d="M22 14.3c0-2.9-2.9-5.2-6.4-5.2s-6.4 2.3-6.4 5.2 2.9 5.2 6.4 5.2c.6 0 1.2-.1 1.8-.2l2.6 1.3-.6-2.3c1.6-1 2.6-2.4 2.6-4z"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path fill="currentColor" d="M5.5 6.5A2 2 0 0 1 7.3 5h9.4a2 2 0 0 1 1.8 1.5l1.3 4.5h.2a2 2 0 0 1 2 2v4h-2v1.5a1.5 1.5 0 0 1-3 0V17H7v1.5a1.5 1.5 0 0 1-3 0V17H2v-4a2 2 0 0 1 2-2h.2zM6.4 11h11.2l-1-3.5H7.4zM6 15.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm12 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+    <symbol id="i-ticket" viewBox="0 0 24 24"><path fill="currentColor" d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2.5a2.5 2.5 0 0 0 0 5V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2.5a2.5 2.5 0 0 0 0-5z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle fill="none" stroke="currentColor" stroke-width="1.9" cx="12" cy="12" r="9"/><path fill="none" stroke="currentColor" stroke-width="1.9" d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></symbol>
+    <symbol id="i-photo" viewBox="0 0 24 24"><path fill="currentColor" d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 13h14l-4.5-6-3.5 4.5-2.5-3z"/><circle fill="currentColor" cx="8" cy="8.5" r="1.6"/></symbol>
+  </defs>
+</svg>
+
+<div class="app">
+  <header class="top">
+    <div class="stack" style="gap:2px">
+      <p class="hello" id="hello">Sea &amp; Fluke ไปเซี่ยงไฮ้</p>
+      <h1>Shanghai Trip 2026</h1>
+      <p class="eyebrow">22–27 ต.ค. 2026</p>
+    </div>
+    <div class="top-r">
+      <div class="lang-wrap">
+        <button class="lang-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="ภาษา / Language / 语言"><svg class="ic"><use href="#i-globe"/></svg><span id="lang-cur" data-notr>ไทย</span></button>
+        <div class="lang-menu" id="lang-menu" hidden role="menu" data-notr>
+          <button role="menuitemradio" data-lang="th">ไทย</button>
+          <button role="menuitemradio" data-lang="en">English</button>
+          <button role="menuitemradio" data-lang="zh">中文</button>
+        </div>
+      </div>
+      <div class="duo" id="duo"></div>
+    </div>
+  </header>
+
+  <!-- ภาพรวม -->
+  <section class="view stack-lg" id="v-home">
+    <div class="card hero stack">
+      <svg class="deco"><use href="#i-heart"/></svg>
+      <div class="count" id="countdown"></div>
+      <div class="clocks">
+        <div class="clock"><p class="eyebrow">เซี่ยงไฮ้ (UTC+8)</p><p class="t" id="clk-sh">--:--</p></div>
+        <div class="clock"><p class="eyebrow">ไทย (UTC+7)</p><p class="t muted" id="clk-th">--:--</p></div>
+      </div>
+      <p class="small muted">เวลาเซี่ยงไฮ้เร็วกว่าไทย 1 ชั่วโมง</p>
+    </div>
+
+    <div class="card stack" id="docs-card" hidden>
+      <h2>เอกสาร</h2>
+      <p class="small muted">กดเพื่อเปิดเต็มจอให้ ตม. หรือพนักงานโรงแรมดู เปิดได้แม้ไม่มีเน็ต</p>
+      <div class="docs" id="docs"></div>
+    </div>
+
+    <div class="card stack">
+      <h2>เปิดแอป</h2>
+      <div class="apps" id="apps"></div>
+      <p class="small muted">ปุ่มเหล่านี้พยายามเปิดแอปในมือถือ ถ้ากดแล้วไม่มีอะไรขึ้น ให้เปิดแอปเองจากหน้าจอโทรศัพท์</p>
+    </div>
+
+    <div class="stack">
+      <h2 id="next-title">ถัดไป</h2>
+      <div id="next"></div>
+    </div>
+
+    <div class="card stack">
+      <h2>แลกเงิน CNY ↔ THB</h2>
+      <div class="conv">
+        <div><label for="cny">หยวน (CNY)</label><input class="field amt" id="cny" inputmode="decimal" value="99"></div>
+        <div><label for="thb">บาท (THB)</label><input class="field amt" id="thb" inputmode="decimal"></div>
+      </div>
+      <div class="row small muted"><label for="rate">เรท 1 CNY =</label><input class="field mono" id="rate" inputmode="decimal" value="4.6" style="width:78px;padding:4px 10px;font-weight:600"> บาท (แก้ได้)</div>
+    </div>
+
+    <div class="card stack">
+      <h2>เบอร์โรงแรม</h2>
+      <dl class="kv">
+        <dt>HanTing</dt><dd class="mono">+86-21-63601818</dd>
+        <dt>JOYFUL YARD</dt><dd class="mono">+86-21-58931888-0</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- แผนรายวัน -->
+  <section class="view" id="v-plan" hidden>
+    <div class="days" id="daypick" role="group" aria-label="เลือกวัน"></div>
+    <div id="dayview"></div>
+  </section>
+
+  <!-- เที่ยวบิน -->
+  <section class="view stack-lg" id="v-fly" hidden></section>
+
+  <!-- ที่พัก -->
+  <section class="view stack-lg" id="v-stay" hidden></section>
+
+  <!-- ค่าใช้จ่าย -->
+  <section class="view stack-lg" id="v-pay" hidden>
+    <div class="card stack">
+      <div class="row" style="justify-content:space-between"><h2>สรุปค่าใช้จ่าย</h2><span class="chip" id="sync-chip">กำลังโหลด…</span></div>
+      <div class="sum">
+        <div class="p"><div class="row"><span class="av sea" data-face="sea" style="--s:34px"></span><span class="small"><span data-name="sea">Sea</span> จ่ายไป</span></div><b id="s-sea-paid">฿0</b><span class="small muted">ส่วนของ <span data-name="sea">Sea</span> <span id="s-sea-share" class="mono">฿0</span></span></div>
+        <div class="p"><div class="row"><span class="av fluke" data-face="fluke" style="--s:34px"></span><span class="small"><span data-name="fluke">Fluke</span> จ่ายไป</span></div><b id="s-fluke-paid">฿0</b><span class="small muted">ส่วนของ <span data-name="fluke">Fluke</span> <span id="s-fluke-share" class="mono">฿0</span></span></div>
+      </div>
+      <p class="settle" id="settle">ยังไม่มีรายการ</p>
+      <p class="small muted" id="s-total"></p>
+    </div>
+
+    <form class="card stack" id="exp-form" autocomplete="off">
+      <h2 id="exp-form-title">เพิ่มรายการที่ซื้อ</h2>
+      <div class="form">
+        <div class="full"><label for="e-item">ซื้ออะไร</label><input class="field" type="text" id="e-item" placeholder="เช่น บะหมี่มันปู Xie San Bao"></div>
+        <div><label for="e-cny">ราคา (หยวน)</label><input class="field amt" id="e-cny" inputmode="decimal" placeholder="0"></div>
+        <div><label>เป็นเงินบาท</label><div class="thb-out" id="e-thb">฿0</div></div>
+        <div class="full"><label>ใครจ่าย</label>
+          <div class="seg payer" id="e-payer">
+            <button type="button" data-p="sea" aria-pressed="true"><span class="av sea" data-face="sea"></span><span data-name="sea">Sea</span> เป็นคนจ่าย</button>
+            <button type="button" data-p="fluke" aria-pressed="false"><span class="av fluke" data-face="fluke"></span><span data-name="fluke">Fluke</span> เป็นคนจ่าย</button>
+          </div></div>
+        <div class="full"><label>หารยังไง</label>
+          <div class="seg" id="e-preset">
+            <button type="button" data-s="50" aria-pressed="true">หารครึ่ง</button>
+            <button type="button" data-s="100" aria-pressed="false">ของ <span data-name="sea">Sea</span></button>
+            <button type="button" data-s="0" aria-pressed="false">ของ <span data-name="fluke">Fluke</span></button>
+            <button type="button" data-s="custom" aria-pressed="false">กำหนด %</button>
+          </div></div>
+        <div class="full split-row">
+          <span class="split-lbl"><span class="av sea" data-face="sea"></span><b id="e-sea-pct">50</b>%</span>
+          <input type="range" id="e-split" min="0" max="100" step="5" value="50" aria-label="สัดส่วนของ Sea">
+          <span class="split-lbl"><b id="e-fluke-pct">50</b>%<span class="av fluke" data-face="fluke"></span></span>
+        </div>
+        <div><label for="e-day">วัน</label><select class="field" id="e-day"></select></div>
+        <div><label for="e-note">โน้ต</label><input class="field" type="text" id="e-note" placeholder="ไม่ใส่ก็ได้"></div>
+      </div>
+      <p class="small muted">ใช้เรท 1 CNY = <span class="mono" id="e-rate">4.6</span> บาท (แก้เรทได้ในหน้าภาพรวม)</p>
+      <p class="note" id="e-err" hidden></p>
+      <div class="row"><button type="submit" class="btn go" id="e-save">บันทึก</button><button type="button" id="e-cancel" hidden>ยกเลิกการแก้ไข</button></div>
+    </form>
+
+    <div class="card">
+      <h2>รายการทั้งหมด</h2>
+      <div id="exp-list"><p class="muted small" style="margin-top:8px">ยังไม่มีรายการ เพิ่มรายการแรกจากฟอร์มด้านบนได้เลย</p></div>
+    </div>
+  </section>
+
+  <!-- ภาษาจีน -->
+  <section class="view stack" id="v-zh" hidden>
+    <div class="cats" id="zh-cats" role="group" aria-label="หมวดคำ"></div>
+    <div id="zh-body" class="stack"></div>
+  </section>
+
+  <!-- เตรียมตัว -->
+  <section class="view stack-lg" id="v-prep" hidden>
+    <div class="card stack">
+      <h2>คนที่ไปเที่ยว</h2>
+      <div class="conv">
+        <div><label for="n-sea">คนที่ 1</label><input class="field" id="n-sea" maxlength="16"></div>
+        <div><label for="n-fluke">คนที่ 2</label><input class="field" id="n-fluke" maxlength="16"></div>
+      </div>
+      <p class="small muted">ชื่อนี้ใช้ในหน้าค่าใช้จ่ายและทั้งแอป</p>
+    </div>
+    <div class="card"><h2>ของที่ต้องพก</h2><div id="list-pack"></div></div>
+    <div class="card"><h2>แอปที่ใช้ในแผน</h2><div id="list-apps"></div></div>
+    <div class="card"><h2>ทำก่อนเดินทาง</h2><div id="list-todo"></div></div>
+  </section>
+</div>
+
+<nav class="tabs" aria-label="เมนู">
+  <div class="in" role="tablist">
+    <button role="tab" data-v="home" aria-selected="true"><span class="pill"><svg class="ic"><use href="#i-heart"/></svg></span>ภาพรวม</button>
+    <button role="tab" data-v="plan"><span class="pill"><svg class="ic"><use href="#i-route"/></svg></span>แผน</button>
+    <button role="tab" data-v="fly"><span class="pill"><svg class="ic"><use href="#i-plane"/></svg></span>บิน</button>
+    <button role="tab" data-v="stay"><span class="pill"><svg class="ic"><use href="#i-house"/></svg></span>ที่พัก</button>
+    <button role="tab" data-v="pay"><span class="pill"><svg class="ic"><use href="#i-wallet"/></svg></span>จ่าย</button>
+    <button role="tab" data-v="zh"><span class="pill"><svg class="ic"><use href="#i-chat"/></svg></span>จีน</button>
+    <button role="tab" data-v="prep"><span class="pill"><svg class="ic"><use href="#i-list"/></svg></span>เตรียม</button>
+  </div>
+</nav>
+
+<div class="docview" id="docview" hidden role="dialog" aria-label="เอกสาร">
+  <div class="bar"><h3 id="dv-title"></h3><button class="btn go" id="dv-close">ปิด</button></div>
+  <div class="pages" id="dv-pages"></div>
+</div>
+
+<div class="overlay" id="driver" hidden role="dialog" aria-label="การ์ดให้คนขับ">
+  <p class="eyebrow" id="drv-eyebrow">请带我去 · กรุณาพาไปที่</p>
+  <p class="big" id="drv-zh"></p>
+  <p class="addr" id="drv-addr"></p>
+  <p class="muted" id="drv-en"></p>
+  <div class="row"><button class="btn go" id="drv-close">ปิด</button><button class="btn soft" id="drv-say" hidden>ฟังเสียง</button></div>
+</div>
+
+
+<script>
+const HOTEL1 = {
+  key: "h1", en: "HanTing Hotel (Nanjing Road Pedestrian Street Center)",
+  zh: "汉庭酒店(上海南京路步行街中心店)",
+  addrZh: "上海市黄浦区浙江中路400号", addrEn: "No. 400 Zhejiang Middle Road, Huangpu District, Shanghai 200001",
+  tel: "+86-21-63601818", email: "",
+  booking: "", pin: null, confirm: null,
+  in: "2026-10-23", out: "2026-10-25", nights: 2, checkIn: "หลัง 14:00", checkOut: "ก่อน 12:00",
+  near: ["Metro People’s Square ทางออก 6, 7 · ~500 ม.", "Metro East Nanjing Road · ~700 ม.", "ไม่รวมอาหารเช้า"]
+};
+const HOTEL2 = {
+  key: "h2", en: "Shanghai JOYFUL YARD Hotel (Pudong Airport)",
+  zh: "上海溢喜小院(上海浦东机场店)",
+  addrZh: "上海市浦东新区机场镇港鸿路462号", addrEn: "No. 462 Ganghong Road, Jichang Town, Pudong New Area, Shanghai 201202",
+  tel: "+86-21-58931888-0", email: "",
+  booking: "", pin: null, confirm: null,
+  in: "2026-10-25", out: "2026-10-27", nights: 2, checkIn: "หลัง 14:00", checkOut: "ก่อน 14:00",
+  near: ["อาหารเช้า 26 และ 27 ต.ค. (2 คน)", "รถรับส่งสนามบินผู่ตง 24 ชม.", "รถรับส่งไป Disney ตามตารางเวลา", "ได้สิทธิ์เช็กเอาต์ช้า (late check-out)"]
+};
+
+const FLIGHTS = [
+  { leg: "ขาไป · เที่ยวที่ 1", date: "ศุกร์ 23 ต.ค. 2026", air: "China Eastern", no: "MU2564", ac: "Boeing 737-800", meal: "มีอาหาร",
+    from: ["BKK", "Bangkok Suvarnabhumi", "02:45"], to: ["WUH", "Wuhan Tianhe T3", "07:20"], dur: "3h 35m", row: "46" },
+  { layover: "ต่อเครื่องที่อู่ฮั่น 3 ชม. 40 นาที · ไม่ต้องรับกระเป๋ามาเช็กอินใหม่ · ผ่าน ตม. ที่อู่ฮั่น" },
+  { leg: "ขาไป · เที่ยวที่ 2", date: "ศุกร์ 23 ต.ค. 2026", air: "China Eastern", no: "MU2511", ac: "Boeing 737-800", meal: "ของว่าง",
+    from: ["WUH", "Wuhan Tianhe T3", "11:00"], to: ["PVG", "Shanghai Pudong T1", "12:35"], dur: "1h 35m", row: "49" },
+  { leg: "ขากลับ", date: "อังคาร 27 ต.ค. 2026", air: "Shanghai Airlines", no: "FM839", ac: "Boeing 737-800", meal: "ของว่าง",
+    from: ["PVG", "Shanghai Pudong T1", "14:40"], to: ["BKK", "Bangkok Suvarnabhumi", "18:25"], dur: "4h 45m", row: "48",
+    warn: "Trip.com แนะนำให้ถึงผู่ตงก่อนเครื่องออก 3 ชม. (ประมาณ 11:40)" }
+];
+const TICKETS = null;
+const BAGGAGE = [["โหลดใต้เครื่อง", "1 ใบ · 23 กก. · กว้าง+ยาว+สูง ไม่เกิน 158 ซม."], ["ถือขึ้นเครื่อง", "1 ใบ · 8 กก. · ไม่เกิน 55×40×20 ซม."], ["ของใบเล็ก", "1 ชิ้น · ไม่เกิน 35×32×18 ซม. (วางใต้ที่นั่งข้างหน้า)"]];
+
+/* stop: {t, ic, title, zh, body:[], steps:[], spots:[[en,zh]], price, note, transit, hotel, metro} */
+const DAYS = [
+  { id: "d0", label: "Day 0", date: "2026-10-22", wk: "พฤ 22 ต.ค.", ic: "moon", title: "ออกเดินทาง", stops: [
+    { t: "20:00", ic: "car", title: "ออกจากบ้าน → สุวรรณภูมิ", transit: true },
+    { t: "22:00", ic: "plane", title: "ถึงสนามบินสุวรรณภูมิ" },
+    { t: "22:30", ic: "ticket", title: "เช็กอิน China Eastern", body: ["อาคารผู้โดยสารขาออก ชั้น 4", "แถว L · ทางเข้า 7 และ 8"] }
+  ]},
+  { id: "d1", label: "Day 1", date: "2026-10-23", wk: "ศ 23 ต.ค.", ic: "tower", title: "ถึงเซี่ยงไฮ้ · The Bund", stops: [
+    { t: "02:45", ic: "plane", title: "บิน MU2564 BKK → WUH", transit: true },
+    { t: "07:20", ic: "plane", title: "ถึงอู่ฮั่น Tianhe T3", body: ["ผ่าน ตม. ที่อู่ฮั่น ไม่ต้องรอกระเป๋า", "ต่อเครื่อง 3 ชม. 40 นาที"] },
+    { t: "11:00", ic: "plane", title: "บิน MU2511 WUH → PVG", transit: true },
+    { t: "12:35", ic: "train", title: "ถึงผู่ตง T1 → เข้าเมืองด้วย Metro", metro: "2",
+      steps: ["รับกระเป๋าแล้วเลี้ยวซ้าย", "เดินตามป้าย Metro", "ขึ้น Metro สาย 2 (สีเขียว)", "ลงสถานี People’s Square ทางออก 6/7"], price: "~7 CNY" },
+    { t: "14:00+", ic: "bed", title: "เช็กอิน HanTing Hotel", hotel: "h1" },
+    { ic: "bowl", title: "Xie San Bao (ร้านปู)", zh: "蟹叁寳(上海人民广场店)",
+      body: ["ข้าว/บะหมี่มันปู 蟹黄金捞 เติมเส้นหรือข้าวฟรี <span class='price'>~99 CNY</span>", "ขนมจีบมันปู <span class='price'>~24 CNY</span>"] },
+    { ic: "tea", title: "Hey Tea 喜茶", zh: "喜茶(上海北外滩来福士店)",
+      body: ["Raffles City The Bund (North Bund) ชั้น 1", "Grape Boom (Original) <span class='price'>~19 CNY</span>", "Mango Grapefruit Boom <span class='price'>~18 CNY</span>", "Bobo Milk Tea <span class='price'>~15 CNY</span>"] },
+    { ic: "camera", title: "จุดถ่ายรูป The Bund / Rock Bund",
+      body: ["North Bund Green Land: ทางออก International Cruise 3 เดินตรงเข้าห้าง จะเจอ Starbucks ขึ้นบันไดเลื่อนด้านขวา เลี้ยวซ้าย แล้วข้ามถนน"],
+      spots: [["Manner Café (North Bund)", "Manner 北外滩"], ["Waibaidu Bridge", "外白渡桥"], ["Zhapulu Bridge", "乍浦路桥"], ["Hongkou Gang", "长治路九龙路交叉口"], ["Shanghai Clearing House", ""], ["Rock Bund Art Museum", "外滩美术馆"]] },
+    { ic: "bowl", title: "New Sukiyaki (People’s Square)", body: ["No.1 Department Store โซน Hall B ประตู 8", "ขึ้นลิฟต์ไปชั้น 6F <span class='price'>~179 CNY</span>"] },
+    { ic: "star", title: "City walk", spots: [["People’s Square", "人民广场"], ["Nanjing Road", "南京路步行街"], ["Lujiazui", "陆家嘴"], ["Oriental Pearl Tower", "东方明珠"], ["The Bund", "外滩"]] }
+  ]},
+  { id: "d2", label: "Day 2", date: "2026-10-24", wk: "ส 24 ต.ค.", ic: "bag", title: "Wukang Rd · Anfu Rd · Cloudnine", stops: [
+    { t: "10:00", ic: "bowl", title: "Huxilao Longtang Noodle House (Guangdong Rd)", zh: "沪西老弄堂面馆（广东路店）",
+      body: ["แนะนำ: บะหมี่หอยลายตับหมู แบบแห้ง/คลุก <span class='price'>~34 CNY</span>"] },
+    { ic: "train", title: "Metro → Jiaotong University", metro: "2", transit: true,
+      steps: ["People’s Square → Jiaotong University", "ออกทางออก 7 แล้วเลี้ยวขวา", "เดินไปตามถนน Huaihai Middle Road"],
+      note: "สถานี Jiaotong University อยู่บน Metro สาย 10/11 ไม่ใช่สาย 2 ควรเช็กเส้นทางในแอปอีกที" },
+    { ic: "camera", title: "Wukang Road – Anfu Road", zh: "武康大楼",
+      body: ["Matcha Wang: Lily Lamp Matcha Latte (ห้ามพลาด!)"],
+      spots: [["Wukang Building", "武康大楼"], ["Lille Baker & Spice", ""], ["Gathering – No. 137", ""], ["Fluffy.LFB", ""], ["RACBAR", ""], ["13De Marzo", ""], ["Wiggle Wiggle", ""], ["Tagi", ""], ["Brandy Melville", ""], ["DuoZhaoYu", ""], ["SEN LAB", ""], ["LOOKNOW & FLOW", ""]] },
+    { ic: "art", title: "Jing’an Sculpture Park", zh: "静安雕塑公园", body: ["นั่ง DiDi ไป"] },
+    { ic: "bag", title: "Cloudnine Shopping Mall", zh: "龙之梦购物中心(中山公园店)", metro: "2",
+      body: ["Metro สาย 2 สถานี Zhongshan Park ทางออก 5"],
+      spots: [["Butterful & Creamorous", ""], ["Long Time Ago", ""], ["Hot Max (B2)", "好特卖"], ["Hey Tea", "喜茶"], ["Fei Da Chu", ""], ["Nut Fun Land (B1)", ""], ["Holyland (B1)", ""], ["Busy for You (ห้างสีเหลืองฝั่งตรงข้าม)", "零食很忙"]] }
+  ]},
+  { id: "d3", label: "Day 3", date: "2026-10-25", wk: "อา 25 ต.ค.", ic: "art", title: "พิพิธภัณฑ์ Pudong · ย้ายโรงแรม", stops: [
+    { t: "10:00", ic: "bed", title: "เช็กเอาต์ HanTing", body: ["ฝากกระเป๋าไว้ที่โรงแรม"], hotel: "h1" },
+    { t: "11:00", ic: "bowl", title: "มื้อเที่ยง Jia Jia Tang Bao (People’s Square)", zh: "佳家汤包" },
+    { t: "12:00", ic: "art", title: "Museum of Art Pudong", zh: "浦东美术馆", body: ["ซื้อตั๋วใน Trip.com <span class='price'>~150 CNY</span>"] },
+    { ic: "bowl", title: "มื้อเย็น Fei Da Chu", zh: "悦荟广场", body: ["ห้าง Mosaic ชั้น 5"] },
+    { ic: "bag", title: "กลับไปเอากระเป๋าที่ HanTing", transit: true },
+    { ic: "bed", title: "ไป JOYFUL YARD Hotel", hotel: "h2",
+      body: ["ทางที่ 1: Metro สาย 2 ไปสนามบินผู่ตง (1 ชม.) <span class='price'>~7 CNY</span><br><span class='small muted'>T1: นอกประตู 6 ชั้น 3 · T2: นอกประตู 26 ชั้น 3</span>",
+             "ทางที่ 2: DiDi ตรงไปโรงแรม (40 นาที) <span class='price'>~95.8 CNY</span>",
+             "ทางที่ 3: Metro สาย 2 ไปสถานี Yuandong Ave. แล้วต่อ DiDi <span class='price'>~19 CNY</span>"] }
+  ]},
+  { id: "d4", label: "Day 4", date: "2026-10-26", wk: "จ 26 ต.ค.", ic: "castle", title: "Shanghai Disneyland", stops: [
+    { t: "06:55", ic: "car", title: "ขึ้นรถของโรงแรมไป Disneyland", zh: "上海迪士尼乐园", transit: true,
+      body: ["สวนเปิด 08:30–20:00"] },
+    { ic: "ticket", title: "ตั๋วเข้าสวน (1 วัน)",
+      body: ["<b>เข้าสวนด้วยพาสปอร์ต</b> เล่มที่ใช้จอง ต้องพกไปทั้งสองคน",
+             "ดูรหัสตั๋วในแอปที่จอง (เช่น Trip.com)"],
+      note: "ตั๋วยกเลิกหรือคืนเงินไม่ได้" },
+    { ic: "star", title: "Zootopia", body: ["Zootopia: Hot Pursuit"] },
+    { ic: "castle", title: "Fantasyland", body: ["The Many Adventures of Winnie the Pooh", "Seven Dwarfs Mine Train", "Voyage to the Crystal Grotto"] },
+    { ic: "star", title: "Treasure Cove", body: ["Pirates of the Caribbean: Battle for the Sunken Treasure"] },
+    { ic: "star", title: "Adventure Isle", body: ["Soaring Over the Horizon", "Roaring Rapids"] },
+    { ic: "heart", title: "โชว์", body: ["Disney Color-Fest: A Street Party!", "Mickey’s Storybook Express", "Mickey’s Storybook Adventure: กด Standby Pass ในแอป Disney"] },
+    { ic: "star", title: "Tomorrowland", body: ["TRON Lightcycle Power Run"] },
+    { ic: "star", title: "Toy Story Land", body: ["Rex’s Racer", "Woody’s Roundup"] },
+    { ic: "star", title: "Gardens of Imagination", body: ["Dumbo the Flying Elephant"] },
+    { ic: "moon", title: "ILLUMINATE! A Nighttime Celebration", body: ["โชว์ปิดท้ายตอนกลางคืน"] },
+    { ic: "bag", title: "Disneytown", body: ["อยู่ในพื้นที่ Shanghai Disney Resort"] }
+  ]},
+  { id: "d5", label: "Day 5", date: "2026-10-27", wk: "อ 27 ต.ค.", ic: "plane", title: "กลับบ้าน", stops: [
+    { t: "07:30", ic: "sun", title: "ตื่นนอน + อาหารเช้า", body: ["อาหารเช้าเปิด 05:30–09:30"] },
+    { t: "09:30", ic: "bed", title: "เช็กเอาต์", body: ["เก็บกระเป๋า แล้วถามพนักงานว่ารถรับส่งจอดตรงไหน"], hotel: "h2" },
+    { t: "10:00", ic: "car", title: "รถฟรีของโรงแรม → สนามบินผู่ตง", transit: true },
+    { ic: "bag", title: "ซื้อของฝาก", body: ["Busy for You 零食很忙"] },
+    { t: "14:40", ic: "plane", title: "บิน FM839 PVG → BKK", transit: true },
+    { t: "18:25", ic: "heart", title: "ถึงสุวรรณภูมิ (เวลาไทย)" }
+  ]}
+];
+
+/* App shortcuts. Custom schemes open the installed app on many phones; the web link is the fallback. */
+const APP_LINKS = [
+  { name: "Alipay", sub: "เปิดหน้าจ่ายเงิน", ic: "pay", color: "#3B8FE8", href: "alipays://platformapi/startapp?appId=20000056" },
+  { name: "WeChat", sub: "เปิดแอป", ic: "chat", color: "#3DB66A", href: "weixin://" },
+  { name: "DiDi", sub: "เรียกรถ", ic: "car", color: "#F08A3C", href: "https://www.didiglobal.com/" },
+  { name: "Amap", sub: "แผนที่", ic: "map", color: "#3E7BEA", href: "https://uri.amap.com/" },
+  { name: "Trip.com", sub: "โรงแรม / ตั๋ว", ic: "ticket", color: "#3A6FE0", href: "https://www.trip.com/" },
+  { name: "Disney", sub: "Shanghai Disney", ic: "castle", color: "#9A6BDB", href: "https://www.shanghaidisneyresort.com/" }
+];
+
+/* Booking documents as page images in docs/, so they open offline. who: whose document, if it belongs to one person. */
+const DOCS = [];
+
+/* Chinese phrases: [Thai meaning, Chinese, pinyin, Thai reading] */
+const ZH = [
+  { id: "basic", name: "พื้นฐาน", items: [
+    ["สวัสดี", "你好", "nǐ hǎo", "หนี่ ห่าว"],
+    ["ขอบคุณ", "谢谢", "xièxie", "เซี่ย เซี่ย"],
+    ["ไม่เป็นไร (ตอบคำขอบคุณ)", "不客气", "bú kèqi", "ปู๋ เค่อ ชี่"],
+    ["ขอโทษ", "对不起", "duìbuqǐ", "ตุ้ย ปู้ ฉี่"],
+    ["ขอโทษนะ / ขอทางหน่อย", "不好意思", "bù hǎoyìsi", "ปู้ ห่าว อี้ ซือ"],
+    ["ใช่ / ไม่ใช่", "是 / 不是", "shì / bú shì", "ซื่อ / ปู๋ ซื่อ"],
+    ["เอา / ไม่เอา", "要 / 不要", "yào / bú yào", "เย่า / ปู๋ เย่า"],
+    ["มี / ไม่มี", "有 / 没有", "yǒu / méiyǒu", "โหย่ว / เหมย โหย่ว"],
+    ["ไม่เป็นไร ไม่ต้อง ขอบคุณ (ปฏิเสธ)", "不用了，谢谢", "bú yòng le, xièxie", "ปู๋ ย่ง เลอ เซี่ย เซี่ย"],
+    ["ฟังไม่เข้าใจ", "我听不懂", "wǒ tīng bù dǒng", "หว่อ ทิง ปู้ ต่ง"],
+    ["ฉันเป็นคนไทย", "我是泰国人", "wǒ shì Tàiguó rén", "หว่อ ซื่อ ไท่ กั๋ว เหริน"],
+    ["พูดภาษาอังกฤษได้ไหม", "你会说英语吗？", "nǐ huì shuō Yīngyǔ ma?", "หนี่ ฮุ่ย ซัว อิง อวี่ ม่ะ"],
+    ["รอสักครู่", "请等一下", "qǐng děng yíxià", "ฉิ่ง เติ่ง อี๋ เซี่ย"],
+    ["ถ่ายรูปให้หน่อยได้ไหม", "可以帮我们拍照吗？", "kěyǐ bāng wǒmen pāizhào ma?", "เข่อ อี่ ปาง หว่อ เมิน ไพ เจ้า ม่ะ"]
+  ]},
+  { id: "num", name: "ตัวเลข" },
+  { id: "ice", name: "น้ำแข็ง & เครื่องดื่ม", items: [
+    ["ใส่น้ำแข็ง", "加冰", "jiā bīng", "เจีย ปิง"],
+    ["ใส่น้ำแข็งเยอะๆ", "多加冰", "duō jiā bīng", "ตัว เจีย ปิง"],
+    ["ขอน้ำแข็งเยอะหน่อย", "冰多一点", "bīng duō yìdiǎn", "ปิง ตัว อี้ เตี๋ยน"],
+    ["ขอน้ำแข็งเพิ่ม", "再加点冰", "zài jiā diǎn bīng", "ไจ้ เจีย เตี๋ยน ปิง"],
+    ["ขอน้ำแข็งแก้วนึงได้ไหม", "能给我一杯冰块吗？", "néng gěi wǒ yì bēi bīngkuài ma?", "เหนิง เก๋ย หว่อ อี้ เปย ปิง ไคว่ ม่ะ"],
+    ["น้ำแข็งปกติ", "正常冰", "zhèngcháng bīng", "เจิ้ง ฉาง ปิง"],
+    ["น้ำแข็งน้อย", "少冰", "shǎo bīng", "เส่า ปิง"],
+    ["ไม่ใส่น้ำแข็ง", "去冰", "qù bīng", "ชวี่ ปิง"],
+    ["ขอน้ำเย็น (ที่จีนชอบให้น้ำอุ่น)", "我要冰水", "wǒ yào bīng shuǐ", "หว่อ เย่า ปิง สุ่ย"],
+    ["หวานปกติ / หวานครึ่ง / หวานน้อย", "全糖 / 半糖 / 少糖", "quán táng / bàn táng / shǎo táng", "ฉวน ถัง / ปั้น ถัง / เส่า ถัง"],
+    ["ไม่หวาน", "不要糖", "bú yào táng", "ปู๋ เย่า ถัง"],
+    ["แก้วใหญ่", "大杯", "dà bēi", "ต้า เปย"]
+  ]},
+  { id: "food", name: "ร้านอาหาร", items: [
+    ["2 คน", "两个人", "liǎng ge rén", "เหลี่ยง เก้อ เหริน"],
+    ["ขอเมนูหน่อย", "请给我菜单", "qǐng gěi wǒ càidān", "ฉิ่ง เก๋ย หว่อ ไช่ ตาน"],
+    ["เอาอันนี้ (ชี้เมนู)", "我要这个", "wǒ yào zhège", "หว่อ เย่า เจ้อ เก้อ"],
+    ["ไม่เผ็ด", "不要辣", "bú yào là", "ปู๋ เย่า ล่า"],
+    ["เผ็ดนิดเดียว", "微辣", "wēi là", "เวย ล่า"],
+    ["ไม่ใส่ผักชี", "不要香菜", "bú yào xiāngcài", "ปู๋ เย่า เซียง ไช่"],
+    ["ไม่ใส่ต้นหอม", "不要葱", "bú yào cōng", "ปู๋ เย่า ชง"],
+    ["อร่อยมาก", "很好吃", "hěn hǎochī", "เหิ่น ห่าว ชือ"],
+    ["ห่อกลับบ้าน", "打包", "dǎbāo", "ต่า เปา"],
+    ["เช็กบิล", "买单", "mǎidān", "ไหม่ ตาน"]
+  ]},
+  { id: "shop", name: "ซื้อของ", items: [
+    ["ราคาเท่าไร", "多少钱？", "duōshao qián?", "ตัว เสา เฉียน"],
+    ["แพงไป", "太贵了", "tài guì le", "ไท่ กุ้ย เลอ"],
+    ["ลดหน่อยได้ไหม", "便宜一点吧", "piányi yìdiǎn ba", "เพียน อี๋ อี้ เตี๋ยน ปะ"],
+    ["จ่ายด้วย Alipay ได้ไหม", "可以用支付宝吗？", "kěyǐ yòng Zhīfùbǎo ma?", "เข่อ อี่ ย่ง จือ ฟู่ เป่า ม่ะ"],
+    ["จ่ายด้วย WeChat ได้ไหม", "可以用微信支付吗？", "kěyǐ yòng Wēixìn zhīfù ma?", "เข่อ อี่ ย่ง เวย ซิ่น จือ ฟู่ ม่ะ"],
+    ["รูดบัตรได้ไหม", "可以刷卡吗？", "kěyǐ shuākǎ ma?", "เข่อ อี่ ซัว ข่า ม่ะ"],
+    ["มีสีอื่นไหม", "有别的颜色吗？", "yǒu bié de yánsè ma?", "โหย่ว เปี๋ย เตอ เหยียน เซ่อ ม่ะ"],
+    ["ขอถุงด้วย", "我要一个袋子", "wǒ yào yí ge dàizi", "หว่อ เย่า อี๋ เก้อ ไต้ จึ"],
+    ["ดูก่อนนะ", "我先看看", "wǒ xiān kànkan", "หว่อ เซียน ค่าน ข่าน"]
+  ]},
+  { id: "go", name: "เดินทาง", items: [
+    ["ช่วยพาไปที่นี่ (ชี้ที่อยู่)", "请带我去这里", "qǐng dài wǒ qù zhèlǐ", "ฉิ่ง ไต้ หว่อ ชวี่ เจ้อ หลี่"],
+    ["จอดตรงนี้", "在这里停", "zài zhèlǐ tíng", "ไจ้ เจ้อ หลี่ ถิง"],
+    ["สถานีรถไฟใต้ดินอยู่ไหน", "地铁站在哪里？", "dìtiě zhàn zài nǎlǐ?", "ตี้ เถี่ย จ้าน ไจ้ หน่า หลี่"],
+    ["ห้องน้ำอยู่ไหน", "厕所在哪里？", "cèsuǒ zài nǎlǐ?", "เช่อ สั่ว ไจ้ หน่า หลี่"],
+    ["ไปสนามบินผู่ตง", "去浦东机场", "qù Pǔdōng jīchǎng", "ชวี่ ผู่ ตง จี ฉ่าง"],
+    ["ไปดิสนีย์แลนด์", "去迪士尼乐园", "qù Díshìní lèyuán", "ชวี่ ตี๋ ซื่อ หนี เล่อ หยวน"],
+    ["ใช้เวลานานเท่าไร", "要多长时间？", "yào duō cháng shíjiān?", "เย่า ตัว ฉาง สือ เจียน"],
+    ["ฉันหลงทาง", "我迷路了", "wǒ mílù le", "หว่อ หมี๋ ลู่ เลอ"]
+  ]},
+  { id: "hotel", name: "โรงแรม", items: [
+    ["ฉันจองไว้แล้ว", "我有预订", "wǒ yǒu yùdìng", "หว่อ โหย่ว ยวี่ ติ้ง"],
+    ["เช็กอิน", "办理入住", "bànlǐ rùzhù", "ปั้น หลี่ รู่ จู้"],
+    ["เช็กเอาต์", "退房", "tuìfáng", "ทุ่ย ฝาง"],
+    ["ฝากกระเป๋าได้ไหม", "可以寄存行李吗？", "kěyǐ jìcún xíngli ma?", "เข่อ อี่ จี้ ฉุน ซิง หลี่ ม่ะ"],
+    ["อาหารเช้ากี่โมง", "早餐几点？", "zǎocān jǐ diǎn?", "เจ่า ชาน จี่ เตี่ยน"],
+    ["รถรับส่งไปสนามบินกี่โมง", "去机场的班车几点？", "qù jīchǎng de bānchē jǐ diǎn?", "ชวี่ จี ฉ่าง เตอ ปาน เชอ จี่ เตี่ยน"],
+    ["รถไปดิสนีย์ขึ้นตรงไหน", "去迪士尼的班车在哪里坐？", "qù Díshìní de bānchē zài nǎlǐ zuò?", "ชวี่ ตี๋ ซื่อ หนี เตอ ปาน เชอ ไจ้ หน่า หลี่ จั้ว"],
+    ["รหัสไวไฟคืออะไร", "WiFi密码是什么？", "WiFi mìmǎ shì shénme?", "ไวไฟ มี่ หม่า ซื่อ เสิน เมอ"]
+  ]},
+  { id: "sos", name: "ฉุกเฉิน", tip: "เบอร์ฉุกเฉินในจีน: ตำรวจ 110 · รถพยาบาล 120 · ดับเพลิง 119", items: [
+    ["ช่วยด้วย!", "救命！", "jiùmìng!", "จิ้ว มิ่ง"],
+    ["ฉันไม่สบาย", "我不舒服", "wǒ bù shūfu", "หว่อ ปู้ ซู ฟู"],
+    ["ร้านขายยาอยู่ไหน", "药店在哪里？", "yàodiàn zài nǎlǐ?", "เย่า เตี้ยน ไจ้ หน่า หลี่"],
+    ["ช่วยเรียกรถพยาบาลให้หน่อย", "请帮我叫救护车", "qǐng bāng wǒ jiào jiùhùchē", "ฉิ่ง ปาง หว่อ เจี้ยว จิ้ว ฮู่ เชอ"],
+    ["กระเป๋าเงินหาย", "我的钱包丢了", "wǒ de qiánbāo diū le", "หว่อ เตอ เฉียน เปา ติว เลอ"],
+    ["พาสปอร์ตหาย", "我的护照丢了", "wǒ de hùzhào diū le", "หว่อ เตอ ฮู่ เจ้า ติว เลอ"]
+  ]}
+];
+const NUMS = [
+  ["0", "零", "líng", "หลิง"], ["1", "一", "yī", "อี"], ["2", "二", "èr", "เอ้อร์"], ["3", "三", "sān", "ซาน"],
+  ["4", "四", "sì", "ซื่อ"], ["5", "五", "wǔ", "อู่"], ["6", "六", "liù", "ลิ่ว"], ["7", "七", "qī", "ชี"],
+  ["8", "八", "bā", "ปา"], ["9", "九", "jiǔ", "จิ่ว"], ["10", "十", "shí", "สือ"], ["11", "十一", "shíyī", "สือ อี"],
+  ["20", "二十", "èrshí", "เอ้อร์ สือ"], ["50", "五十", "wǔshí", "อู่ สือ"], ["99", "九十九", "jiǔshíjiǔ", "จิ่ว สือ จิ่ว"], ["100", "一百", "yìbǎi", "อี้ ไป่"],
+  ["200", "两百", "liǎngbǎi", "เหลี่ยง ไป่"], ["500", "五百", "wǔbǎi", "อู่ ไป่"], ["1,000", "一千", "yìqiān", "อี้ เชียน"], ["10,000", "一万", "yíwàn", "อี๋ ว่าน"]
+];
+const NUM_EXTRA = [
+  ["2 อัน / 2 แก้ว (นับของใช้ 两 ไม่ใช้ 二)", "两个 / 两杯", "liǎng ge / liǎng bēi", "เหลี่ยง เก้อ / เหลี่ยง เปย"],
+  ["1 แก้ว", "一杯", "yì bēi", "อี้ เปย"],
+  ["… หยวน (ภาษาพูด)", "… 块", "… kuài", "… ไคว่"],
+  ["35 หยวน", "三十五块", "sānshíwǔ kuài", "ซาน สือ อู่ ไคว่"],
+  ["กี่โมง", "几点？", "jǐ diǎn?", "จี่ เตี่ยน"]
+];
+
+const PACK = ["พาสปอร์ต", "เงินสด (แลกไว้ 1,000 บาท)", "Travel card (5,000 บาท)", "Arrival card (เปิดในมือถือ/พิมพ์ไว้)", "E-Sim", "ปลั๊กแปลง + พาวเวอร์แบงก์ (ห้ามใส่กระเป๋าโหลด)"];
+const APPS = ["Amap (高德地图) ใช้ดูแผนที่", "DiDi ใช้เรียกรถ", "Trip.com ใช้ดูโรงแรมและตั๋วพิพิธภัณฑ์", "Shanghai Disney Resort ใช้กด Standby Pass", "Alipay / WeChat Pay ใช้จ่ายเงิน"];
+const TODO = ["กรอก Arrival card ออนไลน์ (ภายใน 7 วันก่อนถึง)", "ซื้อตั๋ว Museum of Art Pudong ใน Trip.com", "เปิดใช้ E-Sim", "ผูก Travel card กับ Alipay/WeChat"];
+
+const $ = s => document.querySelector(s);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const icon = n => `<svg class="ic"><use href="#i-${n}"/></svg>`;
+const amap = q => "https://uri.amap.com/search?keyword=" + encodeURIComponent(q) + "&city=" + encodeURIComponent("上海");
+/* cn.bing.com works inside mainland China, unlike Google */
+const pics = q => "https://cn.bing.com/images/search?q=" + encodeURIComponent(q + " Shanghai");
+const hotelOf = k => (k === "h1" ? HOTEL1 : HOTEL2);
+const FACE = window.FACES || {};
+const NAMES = Object.assign({ sea: "Sea", fluke: "Fluke" }, store.get("sh-names", {}));
+const initial = p => esc((NAMES[p] || "?").charAt(0).toUpperCase());
+function avatar(p, size) {
+  const st = size ? ` style="--s:${size}px"` : "";
+  return `<span class="av ${p}"${st}>${FACE[p] ? `<img src="${FACE[p]}" alt="${esc(NAMES[p])}">` : initial(p)}</span>`;
+}
+function fillFaces(root) {
+  (root || document).querySelectorAll("[data-face]").forEach(el => {
+    const p = el.dataset.face; el.innerHTML = FACE[p] ? `<img src="${FACE[p]}" alt="${esc(NAMES[p])}">` : initial(p);
+  });
+}
+function fillNames() {
+  document.querySelectorAll("[data-name]").forEach(el => { el.textContent = NAMES[el.dataset.name]; });
+  $("#hello").textContent = `${NAMES.sea} & ${NAMES.fluke} ไปเซี่ยงไฮ้`;
+}
+
+/* Shanghai date/time, independent of the device's time zone */
+function shNow() { const d = new Date(); return new Date(d.getTime() + (d.getTimezoneOffset() + 480) * 60000); }
+function ymd(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+function hm(d) { return String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0"); }
+
+/* ---------- driver card ---------- */
+function showDriver(zh, addr, en, eyebrow) {
+  $("#drv-zh").textContent = zh; $("#drv-addr").textContent = addr || ""; $("#drv-en").textContent = en || "";
+  $("#drv-eyebrow").textContent = eyebrow || "请带我去 · กรุณาพาไปที่";
+  $("#drv-say").hidden = !canSpeak; $("#drv-say").onclick = () => speak(zh);
+  $("#driver").hidden = false;
+  try { navigator.wakeLock && navigator.wakeLock.request("screen").catch(() => {}); } catch (e) {}
+}
+$("#drv-close").onclick = () => { $("#driver").hidden = true; };
+document.addEventListener("keydown", e => { if (e.key === "Escape") $("#driver").hidden = true; });
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-drv]"); if (!b) return;
+  const d = JSON.parse(b.dataset.drv); showDriver(d[0], d[1], d[2]);
+});
+function placeTools(zh, en, addr) {
+  if (!zh && !en) return "";
+  return `<div class="row tools">
+    ${zh ? `<button class="btn soft" data-drv="${esc(JSON.stringify([zh, addr || "", en]))}">${icon("car")} แสดงให้คนขับ</button>
+    <a class="btn" href="${amap(zh)}" target="_blank" rel="noopener">${icon("map")} Amap</a>` : ""}
+    <a class="btn" href="${pics(zh || en)}" target="_blank" rel="noopener">${icon("photo")} ดูรูป</a>
+  </div>`;
+}
+
+/* ---------- Chinese phrases ---------- */
+const canSpeak = (() => { try { return "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function"; } catch (e) { return false; } })();
+function speak(text) {
+  if (!canSpeak) return;
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text.replace(/[…/]/g, " ")); u.lang = "zh-CN"; u.rate = 0.85;
+    const v = speechSynthesis.getVoices().find(x => /^zh[-_]CN/i.test(x.lang)); if (v) u.voice = v;
+    speechSynthesis.speak(u);
+  } catch (e) {}
+}
+let zhCat = store.get("sh-zh", "basic");
+function phrHTML(p) {
+  const [th, cn, py, rd] = p;
+  return `<button class="phr" data-zh="${esc(JSON.stringify(p))}">
+    <span class="th">${esc(th)}</span><span class="cn">${esc(cn)}</span><span class="rd">${esc(rd)}</span><span class="py">${esc(py)}</span>
+    ${canSpeak ? `<span class="say" data-say="${esc(cn)}" role="button" aria-label="ฟังเสียง">${icon("chat")}</span>` : ""}</button>`;
+}
+function renderZh() {
+  if (!ZH.find(c => c.id === zhCat)) zhCat = "basic";
+  $("#zh-cats").innerHTML = ZH.map(c => `<button aria-pressed="${c.id === zhCat}" data-cat="${c.id}">${esc(c.name)}</button>`).join("");
+  const c = ZH.find(x => x.id === zhCat);
+  let body = `<p class="small muted">กดที่คำเพื่อขึ้นตัวจีนใหญ่เต็มจอให้อีกฝ่ายอ่าน${canSpeak ? " · กดปุ่มกลมเพื่อฟังเสียง" : ""}</p>`;
+  if (c.id === "num") {
+    body += `<div class="nums">${NUMS.map(([d, cn, py, rd]) => `<button class="num" data-zh="${esc(JSON.stringify([d, cn, py, rd]))}"><span class="d">${d}</span><span class="cn">${cn}</span><span class="rd">${rd}</span></button>`).join("")}</div>
+      <div class="phr-list">${NUM_EXTRA.map(phrHTML).join("")}</div>`;
+  } else {
+    if (c.tip) body += `<p class="tip">${esc(c.tip)}</p>`;
+    body += `<div class="phr-list">${c.items.map(phrHTML).join("")}</div>`;
+  }
+  $("#zh-body").innerHTML = body;
+}
+$("#zh-cats").addEventListener("click", e => {
+  const b = e.target.closest("[data-cat]"); if (!b) return;
+  zhCat = b.dataset.cat; store.set("sh-zh", zhCat); renderZh();
+});
+$("#zh-body").addEventListener("click", e => {
+  const s = e.target.closest("[data-say]"); if (s) { e.stopPropagation(); speak(s.dataset.say); return; }
+  const b = e.target.closest("[data-zh]"); if (!b) return;
+  const [th, cn, py, rd] = JSON.parse(b.dataset.zh);
+  showDriver(cn, LANG === "th" ? `${py} · ${rd}` : py, th, "ภาษาจีน · 中文");
+});
+if (canSpeak) { try { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices(); } catch (e) {} }
+
+/* ---------- documents ---------- */
+function docBtn(d, label) {
+  return `<button class="btn soft" data-doc="${d.key}">${icon("photo")} ${label}</button>`;
+}
+const docOf = k => DOCS.find(d => d.key === k);
+function renderDocs() {
+  $("#docs-card").hidden = !DOCS.length;
+  $("#docs").innerHTML = DOCS.map(d => `<button class="doc-btn" data-doc="${d.key}">
+    ${d.who ? avatar(d.who) : `<span class="big-ic">${icon(d.ic)}</span>`}
+    <span style="min-width:0"><b>${esc(d.title)}${d.who ? ` · ${esc(NAMES[d.who])}` : ""}</b><small>${esc(d.sub)}</small></span>
+    <span class="go-ic">เปิด</span></button>`).join("");
+}
+function openDoc(k) {
+  const d = docOf(k); if (!d) return;
+  $("#dv-title").textContent = d.title + (d.who ? " · " + NAMES[d.who] : "");
+  /* pages are embedded in the page by the build (window.DOC_IMG); the docs/ path is only a fallback */
+  const srcOf = p => (window.DOC_IMG && window.DOC_IMG[p]) || p;
+  $("#dv-pages").innerHTML = d.pages.map((src, i) => `<img src="${srcOf(src)}" alt="${esc(d.title)} หน้า ${i + 1}">`).join("");
+  $("#dv-pages").querySelectorAll("img").forEach(img => img.addEventListener("error", () => {
+    const p = document.createElement("p"); p.className = "note"; p.textContent = "เปิดรูปเอกสารนี้ไม่ได้ ให้เปิดไฟล์ PDF ในเครื่องแทน";
+    img.replaceWith(p);
+  }, { once: true }));
+  $("#docview").hidden = false; $("#docview").scrollTop = 0;
+}
+$("#dv-close").onclick = () => { $("#docview").hidden = true; };
+document.addEventListener("keydown", e => { if (e.key === "Escape") $("#docview").hidden = true; });
+document.addEventListener("click", e => { const b = e.target.closest("[data-doc]"); if (b) openDoc(b.dataset.doc); });
+
+/* ---------- plan ---------- */
+function stopHTML(s) {
+  const h = s.hotel ? hotelOf(s.hotel) : null;
+  let inner = `${s.t ? `<p class="when">${s.t}</p>` : ""}
+    <h3>${s.metro ? `<span class="metro-badge" title="Metro สาย ${s.metro}">${s.metro}</span> ` : ""}${esc(s.title)}</h3>`;
+  if (s.zh) inner += `<p class="zh small muted">${esc(s.zh)}</p>`;
+  if (s.steps) inner += `<ul class="steps">${s.steps.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+  if (s.price) inner += `<p class="price" style="margin-top:4px">${s.price}</p>`;
+  if (s.body) inner += `<ul>${s.body.map(x => `<li>${x}</li>`).join("")}</ul>`;
+  if (s.spots) inner += `<div class="spots">${s.spots.map(([e, z]) => `<a class="spot" href="${pics(z || e)}" target="_blank" rel="noopener"><span class="pic">${icon("photo")}</span>${esc(e)}${z ? `<span class="zh">${esc(z)}</span>` : ""}</a>`).join("")}</div>`;
+  if (h) inner += `<p class="small" style="margin-top:6px"><span class="zh">${esc(h.zh)}</span>${h.booking ? `<br><span class="muted">Booking</span> <span class="mono">${h.booking}</span>` : ""}${h.pin ? ` · <span class="muted">Pin</span> <span class="mono">${h.pin}</span>` : ""}</p>`;
+  if (s.note) inner += `<p class="note" style="margin-top:8px">${esc(s.note)}</p>`;
+  if (h) inner += placeTools(h.zh, h.en, h.addrZh);
+  else if (s.zh) inner += placeTools(s.zh, s.title);
+  return `<div class="stop${s.transit ? " transit" : ""}"><span class="dot">${icon(s.ic || "heart")}</span><div class="card">${inner}</div></div>`;
+}
+let curDay = store.get("sh-day", null);
+function renderDays() {
+  const today = ymd(shNow());
+  if (!curDay || !DAYS.find(d => d.id === curDay)) curDay = (DAYS.find(d => d.date === today) || DAYS[0]).id;
+  $("#daypick").innerHTML = DAYS.map(d => `<button aria-pressed="${d.id === curDay}" data-day="${d.id}">
+    <span class="d">${d.label}</span><span class="w">${d.wk}</span>${d.date === today ? `<span class="today">วันนี้</span>` : ""}</button>`).join("");
+  const d = DAYS.find(x => x.id === curDay);
+  $("#dayview").innerHTML = `<div class="stack">
+    <div class="day-head"><span class="big-ic">${icon(d.ic)}</span><div><p class="eyebrow">${d.label} · ${d.wk}</p><h2>${esc(d.title)}</h2></div></div>
+    <div class="line">${d.stops.map(stopHTML).join("")}</div></div>`;
+}
+$("#daypick").addEventListener("click", e => {
+  const b = e.target.closest("[data-day]"); if (!b) return;
+  curDay = b.dataset.day; store.set("sh-day", curDay); renderDays();
+});
+
+/* ---------- flights ---------- */
+function renderFlights() {
+  const top = (TICKETS ? `<div class="card stack">
+      <h2>ตั๋วเครื่องบิน</h2>
+      <dl class="kv">
+        <dt>PNR</dt><dd class="mono" style="font-size:18px;font-weight:600">${TICKETS.pnr}</dd>
+        <dt>Booking</dt><dd class="mono">${TICKETS.booking}</dd>
+      </dl>
+      <div class="sum">
+        <div class="p"><div class="row">${avatar("sea", 30)}<span class="small">${esc(NAMES.sea)}</span></div><span class="mono small">${TICKETS.sea}</span></div>
+        <div class="p"><div class="row">${avatar("fluke", 30)}<span class="small">${esc(NAMES.fluke)}</span></div><span class="mono small">${TICKETS.fluke}</span></div>
+      </div>
+      <p class="small muted">ใช้ได้ทั้งขาไปและขากลับ · ต้องใช้ตั๋วตามลำดับเที่ยวบิน</p>
+      ${docOf("flight") ? `<div class="row">${docBtn(docOf("flight"), "ดูใบ E-itinerary")}</div>` : ""}
+    </div>` : "") + `
+    <div class="card stack">
+      <h2>น้ำหนักกระเป๋า (ต่อคน ทุกเที่ยว)</h2>
+      <dl class="kv">${BAGGAGE.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+      <p class="small muted">ต่อเครื่องที่อู่ฮั่นไม่ต้องรับกระเป๋า (Baggage checked through)</p>
+    </div>`;
+  $("#v-fly").innerHTML = top + FLIGHTS.map(f => f.layover ? `<p class="layover">${esc(f.layover)}</p>` : `
+    <div class="card pass">
+      <div class="head"><span><b>${f.leg}</b> · ${f.date}</span><span class="mono">${f.no}</span></div>
+      <div class="route">
+        <div><p class="code">${f.from[0]}</p><p class="time">${f.from[2]}</p><p class="small muted">${f.from[1]}</p></div>
+        <div class="mid">${icon("plane")}${f.dur}</div>
+        <div class="end"><p class="code">${f.to[0]}</p><p class="time">${f.to[2]}</p><p class="small muted">${f.to[1]}</p></div>
+      </div>
+      <div class="tear"></div>
+      <div class="foot">
+        <div><span class="muted">สายการบิน</span><b style="font-family:var(--f-body)">${f.air}</b></div>
+        <div><span class="muted">ที่นั่ง แถว</span><b>${f.row}</b></div>
+        <div><span class="muted">${f.ac}</span><b style="font-family:var(--f-body)">${f.meal}</b></div>
+      </div>
+      ${f.warn ? `<p class="note" style="margin:0 16px 16px">${esc(f.warn)}</p>` : ""}
+    </div>`).join("");
+}
+
+/* ---------- hotels ---------- */
+function fmtD(s) { return `${+s.split("-")[2]} ต.ค.`; }
+function renderHotels() {
+  $("#v-stay").innerHTML = [HOTEL1, HOTEL2].map((h, i) => `
+    <div class="card stack">
+      <div class="hotel-top"><span class="big-ic">${icon("bed")}</span>
+        <div style="min-width:0"><p class="eyebrow">ที่พัก ${i + 1} · ${h.nights} คืน</p><h3>${esc(h.en)}</h3><p class="zh small">${esc(h.zh)}</p></div></div>
+      <div class="row"><span class="chip acc">เข้า ${fmtD(h.in)} · ${h.checkIn}</span><span class="chip">ออก ${fmtD(h.out)} · ${h.checkOut}</span></div>
+      <dl class="kv">
+        ${h.booking ? `<dt>Booking</dt><dd class="mono">${h.booking}</dd>` : ""}
+        ${h.confirm ? `<dt>ยืนยัน</dt><dd class="mono">${h.confirm}</dd>` : ""}
+        ${h.pin ? `<dt>Pin</dt><dd class="mono">${h.pin}</dd>` : ""}
+        <dt>ที่อยู่</dt><dd>${esc(h.addrEn)}<br><span class="zh small">${esc(h.addrZh)}</span></dd>
+        <dt>โทร</dt><dd class="mono">${h.tel}</dd>
+        ${h.email ? `<dt>อีเมล</dt><dd class="small">${esc(h.email)}</dd>` : ""}
+        <dt>ใกล้</dt><dd>${h.near.map(esc).join("<br>")}</dd>
+      </dl>
+      ${docOf(h.key) ? `<div class="row">${docBtn(docOf(h.key), "ดูใบจองโรงแรม")}</div>` : ""}
+      ${placeTools(h.zh, h.en, h.addrZh)}
+    </div>`).join("");
+}
+
+/* ---------- checklists ---------- */
+function renderList(el, items, key) {
+  const done = store.get(key, []);
+  el.innerHTML = items.map((t, i) => `<label class="check${done.includes(i) ? " done" : ""}">
+    <input type="checkbox" id="${key}-${i}" data-i="${i}" ${done.includes(i) ? "checked" : ""}><span>${esc(t)}</span></label>`).join("");
+  el.onchange = e => {
+    const i = +e.target.dataset.i; let d = store.get(key, []);
+    d = e.target.checked ? [...new Set([...d, i])] : d.filter(x => x !== i);
+    store.set(key, d); e.target.closest(".check").classList.toggle("done", e.target.checked);
+  };
+}
+
+/* ---------- home ---------- */
+$("#duo").innerHTML = avatar("sea", 48) + avatar("fluke", 48);
+$("#apps").innerHTML = APP_LINKS.map(a => `<a class="app-tile" href="${a.href}" target="_blank" rel="noopener">
+  <span class="sq" style="background:${a.color}">${icon(a.ic)}</span>${a.name}<small>${a.sub}</small></a>`).join("");
+const TIMELINE = [];
+DAYS.forEach(d => d.stops.forEach(s => { if (s.t && /^\d\d:\d\d$/.test(s.t)) TIMELINE.push({ at: d.date + " " + s.t, day: d, s }); }));
+function renderHome() {
+  const now = shNow(), today = ymd(now), stamp = today + " " + hm(now);
+  $("#clk-sh").textContent = hm(now);
+  $("#clk-th").textContent = hm(new Date(now.getTime() - 3600000));
+  const start = new Date(2026, 9, 22), t0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const days = Math.round((start - t0) / 86400000);
+  const dayIdx = DAYS.findIndex(d => d.date === today);
+  $("#countdown").innerHTML = days > 0 ? `<b>${days}</b><span><b style="font-size:16px;color:var(--ink)">วันก่อนออกเดินทาง</b><br><span class="small muted">ออกจากบ้าน พฤ 22 ต.ค. 20:00</span></span>`
+    : dayIdx >= 0 ? `<b>${DAYS[dayIdx].label}</b><span><b style="font-size:16px;color:var(--ink)">${esc(DAYS[dayIdx].title)}</b><br><span class="small muted">เที่ยวให้สนุกนะ!</span></span>`
+    : `<b>${icon("heart")}</b><span>จบทริปแล้ว</span>`;
+  const next = TIMELINE.find(x => x.at >= stamp);
+  if (next) {
+    $("#next-title").textContent = `ถัดไป · ${next.day.label} ${next.day.wk}`;
+    $("#next").innerHTML = `<div class="line">${stopHTML(next.s)}</div>`;
+  } else { $("#next-title").textContent = "ถัดไป"; $("#next").innerHTML = `<p class="muted">ไม่มีรายการแล้ว</p>`; }
+}
+
+/* ---------- converter ---------- */
+function num(v) { const n = parseFloat(String(v).replace(/,/g, "")); return isFinite(n) ? n : 0; }
+function fmt(n) { return (Math.round(n * 100) / 100).toLocaleString("en-US", { maximumFractionDigits: 2 }); }
+$("#rate").value = store.get("sh-rate", "4.6");
+$("#cny").addEventListener("input", () => { $("#thb").value = fmt(num($("#cny").value) * num($("#rate").value)); });
+$("#thb").addEventListener("input", () => { const r = num($("#rate").value); $("#cny").value = r ? fmt(num($("#thb").value) / r) : ""; });
+$("#rate").addEventListener("input", () => { store.set("sh-rate", $("#rate").value); $("#thb").value = fmt(num($("#cny").value) * num($("#rate").value)); });
+$("#thb").value = fmt(num($("#cny").value) * num($("#rate").value));
+
+/* ---------- expenses ---------- */
+/* Shared through the db capability so Sea and Fluke see the same list;
+   falls back to this device's storage when db is not available. */
+const EXP = { rows: [], mode: "local", col: null, editing: null, payer: "sea", seaPct: 50, confirmDel: null };
+const thbStr = n => "฿" + Math.round(n).toLocaleString("en-US");
+const cnyStr = n => "¥" + fmt(n);
+const curRate = () => num($("#rate").value) || 4.6;
+
+$("#e-day").innerHTML = DAYS.map(d => `<option value="${d.id}">${d.label} · ${d.wk}</option>`).join("") + `<option value="other">อื่นๆ / ก่อนเดินทาง</option>`;
+function todayDay() { const t = DAYS.find(d => d.date === ymd(shNow())); if (t) $("#e-day").value = t.id; }
+todayDay();
+
+function setPayer(p) { EXP.payer = p; document.querySelectorAll("#e-payer button").forEach(b => b.setAttribute("aria-pressed", b.dataset.p === p)); }
+function setSplit(sea, fromPreset) {
+  EXP.seaPct = Math.max(0, Math.min(100, Math.round(sea)));
+  $("#e-split").value = EXP.seaPct; $("#e-sea-pct").textContent = EXP.seaPct; $("#e-fluke-pct").textContent = 100 - EXP.seaPct;
+  const key = fromPreset || ({ 50: "50", 100: "100", 0: "0" }[EXP.seaPct] || "custom");
+  document.querySelectorAll("#e-preset button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === key));
+}
+function updThb() { $("#e-thb").textContent = thbStr(num($("#e-cny").value) * curRate()); $("#e-rate").textContent = curRate(); }
+$("#e-payer").onclick = e => { const b = e.target.closest("[data-p]"); if (b) setPayer(b.dataset.p); };
+$("#e-preset").onclick = e => {
+  const b = e.target.closest("[data-s]"); if (!b) return;
+  if (b.dataset.s === "custom") { setSplit(EXP.seaPct, "custom"); $("#e-split").focus(); } else setSplit(+b.dataset.s);
+};
+$("#e-split").oninput = () => setSplit(+$("#e-split").value, "custom");
+$("#e-cny").oninput = updThb;
+$("#rate").addEventListener("input", updThb);
+
+function resetForm() {
+  EXP.editing = null; $("#exp-form").reset(); setPayer("sea"); setSplit(50); updThb();
+  $("#exp-form-title").textContent = "เพิ่มรายการที่ซื้อ"; $("#e-save").textContent = "บันทึก"; $("#e-cancel").hidden = true; $("#e-err").hidden = true;
+  todayDay();
+}
+$("#e-cancel").onclick = resetForm;
+function showErr(msg) { $("#e-err").textContent = msg; $("#e-err").hidden = false; }
+
+$("#exp-form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const item = $("#e-item").value.trim(), cny = num($("#e-cny").value);
+  if (!item) return showErr("ใส่ชื่อของที่ซื้อก่อน");
+  if (!(cny > 0)) return showErr("ใส่ราคาเป็นหยวนให้มากกว่า 0");
+  $("#e-err").hidden = true;
+  const prev = EXP.editing ? EXP.rows.find(r => r.id === EXP.editing) : null;
+  const row = { item, cny, rate: curRate(), payer: EXP.payer, seaPct: EXP.seaPct, day: $("#e-day").value,
+    note: $("#e-note").value.trim(), at: prev ? prev.at : Date.now() };
+  $("#e-save").disabled = true;
+  try { await saveRow(EXP.editing, row); resetForm(); }
+  catch (err) { showErr(err && err.code === "quota_exceeded" ? "พื้นที่เก็บข้อมูลเต็ม ลองลบรายการเก่าออกบ้าง" : "บันทึกไม่สำเร็จ ลองใหม่อีกครั้ง"); }
+  $("#e-save").disabled = false;
+});
+
+async function saveRow(id, row) {
+  if (EXP.mode === "db") { id ? await EXP.col.doc(id).set(row) : await EXP.col.add(row); return; }
+  const rows = store.get("sh-exp", []);
+  if (id) { const i = rows.findIndex(r => r.id === id); if (i >= 0) rows[i] = { ...row, id }; }
+  else rows.push({ ...row, id: "l" + Date.now().toString(36) });
+  store.set("sh-exp", rows); EXP.rows = rows; renderExp();
+}
+async function delRow(id) {
+  if (EXP.mode === "db") { await EXP.col.doc(id).delete(); return; }
+  const rows = store.get("sh-exp", []).filter(r => r.id !== id); store.set("sh-exp", rows); EXP.rows = rows; renderExp();
+}
+
+$("#exp-list").addEventListener("click", async e => {
+  const b = e.target.closest("[data-act]"); if (!b) return;
+  const id = b.dataset.id, r = EXP.rows.find(x => x.id === id); if (!r) return;
+  if (b.dataset.act === "edit") {
+    EXP.editing = id; $("#e-item").value = r.item; $("#e-cny").value = r.cny; $("#e-note").value = r.note || ""; $("#e-day").value = r.day || "other";
+    setPayer(r.payer); setSplit(r.seaPct); updThb();
+    $("#exp-form-title").textContent = "แก้ไขรายการ"; $("#e-save").textContent = "บันทึกการแก้ไข"; $("#e-cancel").hidden = false;
+    $("#exp-form").scrollIntoView({ behavior: "smooth", block: "start" });
+  } else if (b.dataset.act === "del") { EXP.confirmDel = id; renderExp(); }
+  else if (b.dataset.act === "del-yes") { EXP.confirmDel = null; try { await delRow(id); } catch (err) { renderExp(); } }
+  else if (b.dataset.act === "del-no") { EXP.confirmDel = null; renderExp(); }
+});
+
+function renderExp() {
+  const rows = EXP.rows.slice().sort((a, b) => (b.at || 0) - (a.at || 0));
+  let paid = { sea: 0, fluke: 0 }, share = { sea: 0, fluke: 0 }, totC = 0, totT = 0;
+  rows.forEach(r => {
+    const t = r.cny * (r.rate || 4.6), sp = (r.seaPct ?? 50) / 100;
+    paid[r.payer === "fluke" ? "fluke" : "sea"] += t; share.sea += t * sp; share.fluke += t * (1 - sp); totC += r.cny; totT += t;
+  });
+  $("#s-sea-paid").textContent = thbStr(paid.sea); $("#s-fluke-paid").textContent = thbStr(paid.fluke);
+  $("#s-sea-share").textContent = thbStr(share.sea); $("#s-fluke-share").textContent = thbStr(share.fluke);
+  const owe = share.sea - paid.sea; /* > 0: Sea owes Fluke */
+  $("#settle").innerHTML = !rows.length ? "ยังไม่มีรายการ"
+    : Math.abs(owe) < 1 ? `${icon("heart")} เคลียร์กันครบแล้ว ไม่มีใครติดใคร`
+    : owe > 0 ? `${avatar("sea", 30)} ${esc(NAMES.sea)} ต้องโอนให้ ${esc(NAMES.fluke)} ${avatar("fluke", 30)} <span class="mono">${thbStr(owe)}</span>`
+    : `${avatar("fluke", 30)} ${esc(NAMES.fluke)} ต้องโอนให้ ${esc(NAMES.sea)} ${avatar("sea", 30)} <span class="mono">${thbStr(-owe)}</span>`;
+  $("#s-total").textContent = rows.length ? `รวม ${rows.length} รายการ · ${cnyStr(totC)} ≈ ${thbStr(totT)}` : "";
+  if (!rows.length) { $("#exp-list").innerHTML = `<p class="muted small" style="margin-top:8px">ยังไม่มีรายการ เพิ่มรายการแรกจากฟอร์มด้านบนได้เลย</p>`; return; }
+  const dayName = id => { const d = DAYS.find(x => x.id === id); return d ? d.label : "อื่นๆ"; };
+  $("#exp-list").innerHTML = rows.map(r => {
+    const t = r.cny * (r.rate || 4.6), sp = r.seaPct ?? 50, p = r.payer === "fluke" ? "fluke" : "sea";
+    const ns = esc(NAMES.sea), nf = esc(NAMES.fluke);
+    const split = sp === 50 ? "หารครึ่ง" : sp === 100 ? `ของ ${ns} ทั้งหมด` : sp === 0 ? `ของ ${nf} ทั้งหมด` : `${ns} ${sp}% · ${nf} ${100 - sp}%`;
+    const acts = EXP.confirmDel === r.id
+      ? `<span class="small">ลบรายการนี้?</span><button data-act="del-yes" data-id="${esc(r.id)}" class="danger">ลบเลย</button><button data-act="del-no" data-id="${esc(r.id)}">ไม่ลบ</button>`
+      : `<button data-act="edit" data-id="${esc(r.id)}">แก้ไข</button><button data-act="del" data-id="${esc(r.id)}">ลบ</button>`;
+    return `<div class="exp">${avatar(p)}
+      <div><b data-notr>${esc(r.item)}</b></div><div class="amt-c">${cnyStr(r.cny)}</div>
+      <div class="small muted"><span data-notr>${esc(NAMES[p])}</span> เป็นคนจ่าย · ${split} · ${dayName(r.day)}${r.note ? ` · <span data-notr>${esc(r.note)}</span>` : ""}</div>
+      <div class="amt-t">${thbStr(t)}</div>
+      <div class="acts">${acts}</div></div>`;
+  }).join("");
+}
+
+async function initExp() {
+  EXP.rows = store.get("sh-exp", []); renderExp();
+  $("#sync-chip").textContent = "เก็บในเครื่องนี้";
+  let db = null;
+  try { db = window.claude && window.claude.use ? await window.claude.use("db") : null; } catch (e) { db = null; }
+  if (!db) return;
+  EXP.mode = "db"; EXP.col = db.collection("expenses");
+  $("#sync-chip").textContent = "แชร์กันทั้งสองคน"; $("#sync-chip").className = "chip acc";
+  EXP.col.onSnapshot(snap => {
+    EXP.rows = snap.docs.map(d => ({ ...d.data(), id: d.id })); renderExp();
+  }, () => { $("#sync-chip").textContent = "เชื่อมต่อไม่ได้"; $("#sync-chip").className = "chip red"; });
+}
+
+/* ---------- language ----------
+   The page is written in Thai. In English or Chinese, every Thai text node and label is swapped
+   through TR (exact match first, then TR_RULES for dates and composed lines, then known fragments).
+   Thai readings (.rd), Chinese text (.cn) and anything the travellers typed ([data-notr]) are left alone. */
+/* "Thai": ["English", "中文"]; a missing Chinese entry falls back to English */
+const TR = {
+  "ไปเซี่ยงไฮ้": ["go to Shanghai", "去上海"],
+  "เซี่ยงไฮ้ (UTC+8)": ["Shanghai (UTC+8)", "上海 (UTC+8)"],
+  "ไทย (UTC+7)": ["Thailand (UTC+7)", "泰国 (UTC+7)"],
+  "เวลาเซี่ยงไฮ้เร็วกว่าไทย 1 ชั่วโมง": ["Shanghai is 1 hour ahead of Thailand", "上海比泰国快1小时"],
+  "เอกสาร": ["Documents", "证件资料"],
+  "กดเพื่อเปิดเต็มจอให้ ตม. หรือพนักงานโรงแรมดู เปิดได้แม้ไม่มีเน็ต": ["Tap to open full screen for immigration or hotel staff. Works offline.", "点击全屏显示给边检或酒店工作人员查看，无网络也可打开。"],
+  "เปิดแอป": ["Open apps", "打开应用"],
+  "ปุ่มเหล่านี้พยายามเปิดแอปในมือถือ ถ้ากดแล้วไม่มีอะไรขึ้น ให้เปิดแอปเองจากหน้าจอโทรศัพท์": ["These buttons try to open the app on your phone. If nothing happens, open the app yourself.", "这些按钮会尝试打开手机应用，如果没有反应，请手动打开。"],
+  "ถัดไป": ["Next", "下一项"],
+  "แลกเงิน CNY ↔ THB": ["Currency CNY ↔ THB", "汇率 人民币 ↔ 泰铢"],
+  "หยวน (CNY)": ["Yuan (CNY)", "人民币 (CNY)"],
+  "บาท (THB)": ["Baht (THB)", "泰铢 (THB)"],
+  "เรท 1 CNY =": ["Rate 1 CNY =", "汇率 1 CNY ="],
+  "บาท (แก้ได้)": ["THB (editable)", "泰铢（可修改）"],
+  "เบอร์โรงแรม": ["Hotel phones", "酒店电话"],
+  "เลือกวัน": ["Choose a day", "选择日期"],
+  "สรุปค่าใช้จ่าย": ["Expense summary", "费用汇总"],
+  "กำลังโหลด…": ["Loading…", "加载中…"],
+  "จ่ายไป": ["paid", "已付"],
+  "ส่วนของ": ["Share of", "应付"],
+  "ยังไม่มีรายการ": ["No expenses yet", "暂无记录"],
+  "เพิ่มรายการที่ซื้อ": ["Add a purchase", "添加消费"],
+  "ซื้ออะไร": ["What did you buy", "买了什么"],
+  "เช่น บะหมี่มันปู Xie San Bao": ["e.g. crab roe noodles at Xie San Bao", "例如：蟹叁寳 蟹黄面"],
+  "ราคา (หยวน)": ["Price (yuan)", "价格（元）"],
+  "เป็นเงินบาท": ["In baht", "折合泰铢"],
+  "ใครจ่าย": ["Who paid", "谁付的"],
+  "เป็นคนจ่าย": ["paid", "付款"],
+  "จ่าย": ["Expenses", "费用"],
+  "หารยังไง": ["How to split", "怎么分摊"],
+  "หารครึ่ง": ["Split 50/50", "平分"],
+  "ของ": ["Only", "只算"],
+  "กำหนด %": ["Custom %", "自定 %"],
+  "สัดส่วนของ Sea": ["Sea's share", "Sea 的比例"],
+  "วัน": ["Day", "日期"],
+  "โน้ต": ["Note", "备注"],
+  "ไม่ใส่ก็ได้": ["Optional", "可不填"],
+  "ใช้เรท 1 CNY =": ["Using rate 1 CNY =", "使用汇率 1 CNY ="],
+  "บาท (แก้เรทได้ในหน้าภาพรวม)": ["THB (change it on the Home tab)", "泰铢（可在首页修改）"],
+  "บันทึก": ["Save", "保存"],
+  "ยกเลิกการแก้ไข": ["Cancel edit", "取消编辑"],
+  "รายการทั้งหมด": ["All expenses", "全部记录"],
+  "ยังไม่มีรายการ เพิ่มรายการแรกจากฟอร์มด้านบนได้เลย": ["No expenses yet. Add the first one with the form above.", "暂无记录，请用上方表格添加第一笔。"],
+  "หมวดคำ": ["Phrase categories", "短语分类"],
+  "คนที่ไปเที่ยว": ["Travellers", "旅行者"],
+  "คนที่ 1": ["Traveller 1", "旅行者 1"],
+  "คนที่ 2": ["Traveller 2", "旅行者 2"],
+  "ชื่อนี้ใช้ในหน้าค่าใช้จ่ายและทั้งแอป": ["These names are used on the expenses tab and across the app.", "名字会用于费用页面和整个应用。"],
+  "ของที่ต้องพก": ["Things to bring", "随身物品"],
+  "แอปที่ใช้ในแผน": ["Apps in the plan", "行程用到的应用"],
+  "ทำก่อนเดินทาง": ["Before you go", "出发前要做"],
+  "เมนู": ["Menu", "菜单"],
+  "ภาพรวม": ["Home", "首页"],
+  "แผน": ["Plan", "行程"],
+  "บิน": ["Flights", "航班"],
+  "ที่พัก": ["Hotels", "住宿"],
+  "จีน": ["Chinese", "中文"],
+  "เตรียม": ["Prep", "准备"],
+  "ปิด": ["Close", "关闭"],
+  "การ์ดให้คนขับ": ["Driver card", "给司机看"],
+  "请带我去 · กรุณาพาไปที่": ["请带我去 · Please take me to", "请带我去"],
+  "ฟังเสียง": ["Listen", "播放"],
+  "หลัง 14:00": ["after 14:00", "14:00后"],
+  "ก่อน 12:00": ["before 12:00", "12:00前"],
+  "ก่อน 14:00": ["before 14:00", "14:00前"],
+  "Metro People’s Square ทางออก 6, 7 · ~500 ม.": ["Metro People’s Square exit 6, 7 · ~500 m", "地铁人民广场站 6、7号口 · 约500米"],
+  "Metro East Nanjing Road · ~700 ม.": ["Metro East Nanjing Road · ~700 m", "地铁南京东路站 · 约700米"],
+  "ไม่รวมอาหารเช้า": ["Breakfast not included", "不含早餐"],
+  "อาหารเช้า 26 และ 27 ต.ค. (2 คน)": ["Breakfast 26 and 27 Oct (2 people)", "10月26日、27日早餐（2人）"],
+  "รถรับส่งสนามบินผู่ตง 24 ชม.": ["24-hour Pudong Airport shuttle", "浦东机场24小时班车"],
+  "รถรับส่งไป Disney ตามตารางเวลา": ["Scheduled Disney shuttle", "迪士尼定时班车"],
+  "ได้สิทธิ์เช็กเอาต์ช้า (late check-out)": ["Late check-out included", "可延迟退房"],
+  "ขาไป · เที่ยวที่ 1": ["Outbound · flight 1", "去程 · 第1段"],
+  "ขาไป · เที่ยวที่ 2": ["Outbound · flight 2", "去程 · 第2段"],
+  "ขากลับ": ["Return", "回程"],
+  "มีอาหาร": ["Meal", "含餐"],
+  "ของว่าง": ["Snack", "小食"],
+  "ต่อเครื่องที่อู่ฮั่น 3 ชม. 40 นาที · ไม่ต้องรับกระเป๋ามาเช็กอินใหม่ · ผ่าน ตม. ที่อู่ฮั่น": ["Connect in Wuhan 3 h 40 min · bags checked through · immigration in Wuhan", "武汉转机3小时40分 · 行李直挂 · 在武汉入境"],
+  "Trip.com แนะนำให้ถึงผู่ตงก่อนเครื่องออก 3 ชม. (ประมาณ 11:40)": ["Trip.com suggests arriving at Pudong 3 h before departure (about 11:40)", "Trip.com 建议起飞前3小时到达浦东（约11:40）"],
+  "โหลดใต้เครื่อง": ["Checked bag", "托运行李"],
+  "1 ใบ · 23 กก. · กว้าง+ยาว+สูง ไม่เกิน 158 ซม.": ["1 piece · 23 kg · L+W+H up to 158 cm", "1件 · 23公斤 · 三边之和不超过158厘米"],
+  "ถือขึ้นเครื่อง": ["Carry-on", "手提行李"],
+  "1 ใบ · 8 กก. · ไม่เกิน 55×40×20 ซม.": ["1 piece · 8 kg · up to 55×40×20 cm", "1件 · 8公斤 · 不超过55×40×20厘米"],
+  "ของใบเล็ก": ["Personal item", "随身小件"],
+  "1 ชิ้น · ไม่เกิน 35×32×18 ซม. (วางใต้ที่นั่งข้างหน้า)": ["1 item · up to 35×32×18 cm (under the seat in front)", "1件 · 不超过35×32×18厘米（放在前座下方）"],
+  "ออกเดินทาง": ["Departure", "出发"],
+  "ออกจากบ้าน → สุวรรณภูมิ": ["Leave home → Suvarnabhumi", "从家出发 → 素万那普机场"],
+  "ถึงสนามบินสุวรรณภูมิ": ["Arrive at Suvarnabhumi Airport", "到达素万那普机场"],
+  "เช็กอิน China Eastern": ["Check in with China Eastern", "东方航空值机"],
+  "อาคารผู้โดยสารขาออก ชั้น 4": ["Departures, 4th floor", "出发大厅 4楼"],
+  "แถว L · ทางเข้า 7 และ 8": ["Row L · entrances 7 and 8", "L柜台 · 7、8号入口"],
+  "ถึงเซี่ยงไฮ้ · The Bund": ["Arrive in Shanghai · The Bund", "抵达上海 · 外滩"],
+  "บิน MU2564 BKK → WUH": ["Flight MU2564 BKK → WUH", "航班 MU2564 曼谷 → 武汉"],
+  "ถึงอู่ฮั่น Tianhe T3": ["Arrive Wuhan Tianhe T3", "抵达武汉天河 T3"],
+  "ผ่าน ตม. ที่อู่ฮั่น ไม่ต้องรอกระเป๋า": ["Clear immigration in Wuhan, no need to collect bags", "在武汉入境，无需提取行李"],
+  "ต่อเครื่อง 3 ชม. 40 นาที": ["Connection 3 h 40 min", "转机3小时40分"],
+  "บิน MU2511 WUH → PVG": ["Flight MU2511 WUH → PVG", "航班 MU2511 武汉 → 浦东"],
+  "ถึงผู่ตง T1 → เข้าเมืองด้วย Metro": ["Arrive Pudong T1 → Metro into the city", "抵达浦东 T1 → 乘地铁进市区"],
+  "รับกระเป๋าแล้วเลี้ยวซ้าย": ["Collect bags, then turn left", "取行李后左转"],
+  "เดินตามป้าย Metro": ["Follow the Metro signs", "跟着地铁指示牌走"],
+  "ขึ้น Metro สาย 2 (สีเขียว)": ["Take Metro Line 2 (green)", "乘地铁2号线（绿色）"],
+  "ลงสถานี People’s Square ทางออก 6/7": ["Get off at People’s Square, exit 6/7", "人民广场站下车，6/7号口"],
+  "เช็กอิน HanTing Hotel": ["Check in at HanTing Hotel", "汉庭酒店入住"],
+  "Xie San Bao (ร้านปู)": ["Xie San Bao (crab restaurant)", "蟹叁寳（蟹黄面馆）"],
+  "ข้าว/บะหมี่มันปู 蟹黄金捞 เติมเส้นหรือข้าวฟรี": ["Crab roe rice/noodles 蟹黄金捞, free refills of noodles or rice", "蟹黄金捞，面或饭免费续"],
+  "ขนมจีบมันปู": ["Crab roe shaomai", "蟹黄烧卖"],
+  "Raffles City The Bund (North Bund) ชั้น 1": ["Raffles City The Bund (North Bund), 1F", "北外滩来福士 1楼"],
+  "จุดถ่ายรูป The Bund / Rock Bund": ["Photo spots: The Bund / Rock Bund", "拍照点：外滩 / 外滩源"],
+  "North Bund Green Land: ทางออก International Cruise 3 เดินตรงเข้าห้าง จะเจอ Starbucks ขึ้นบันไดเลื่อนด้านขวา เลี้ยวซ้าย แล้วข้ามถนน": ["North Bund Green Land: from International Cruise exit 3 walk straight into the mall to Starbucks, take the escalator on the right, turn left and cross the street", "北外滩绿地：国际客运中心3号口直走进商场到星巴克，坐右侧扶梯上楼，左转后过马路"],
+  "No.1 Department Store โซน Hall B ประตู 8": ["No.1 Department Store, Hall B, gate 8", "第一百货 B馆 8号门"],
+  "ขึ้นลิฟต์ไปชั้น 6F": ["Take the lift to 6F", "乘电梯到6楼"],
+  "แนะนำ: บะหมี่หอยลายตับหมู แบบแห้ง/คลุก": ["Try: clam and pork liver noodles, dry/mixed", "推荐：蛤蜊猪肝拌面"],
+  "ออกทางออก 7 แล้วเลี้ยวขวา": ["Leave by exit 7 and turn right", "从7号口出站后右转"],
+  "เดินไปตามถนน Huaihai Middle Road": ["Walk along Huaihai Middle Road", "沿淮海中路步行"],
+  "สถานี Jiaotong University อยู่บน Metro สาย 10/11 ไม่ใช่สาย 2 ควรเช็กเส้นทางในแอปอีกที": ["Jiaotong University station is on Metro Line 10/11, not Line 2. Check the route in a map app.", "交通大学站在地铁10/11号线，不在2号线，请用地图应用确认路线。"],
+  "Matcha Wang: Lily Lamp Matcha Latte (ห้ามพลาด!)": ["Matcha Wang: Lily Lamp Matcha Latte (must try!)", "Matcha Wang：百合灯抹茶拿铁（必喝！）"],
+  "นั่ง DiDi ไป": ["Take a DiDi", "打滴滴过去"],
+  "Metro สาย 2 สถานี Zhongshan Park ทางออก 5": ["Metro Line 2, Zhongshan Park station, exit 5", "地铁2号线 中山公园站 5号口"],
+  "Busy for You (ห้างสีเหลืองฝั่งตรงข้าม)": ["Busy for You (yellow mall across the road)", "零食很忙（对面黄色商场）"],
+  "พิพิธภัณฑ์ Pudong · ย้ายโรงแรม": ["Museum of Art Pudong · change hotels", "浦东美术馆 · 换酒店"],
+  "เช็กเอาต์ HanTing": ["Check out of HanTing", "汉庭酒店退房"],
+  "ฝากกระเป๋าไว้ที่โรงแรม": ["Leave bags at the hotel", "把行李寄存在酒店"],
+  "มื้อเที่ยง Jia Jia Tang Bao (People’s Square)": ["Lunch at Jia Jia Tang Bao (People’s Square)", "午餐：佳家汤包（人民广场）"],
+  "ซื้อตั๋วใน Trip.com": ["Buy tickets on Trip.com", "在 Trip.com 买票"],
+  "มื้อเย็น Fei Da Chu": ["Dinner at Fei Da Chu", "晚餐：Fei Da Chu"],
+  "ห้าง Mosaic ชั้น 5": ["Mosaic mall, 5F", "悦荟广场 5楼"],
+  "กลับไปเอากระเป๋าที่ HanTing": ["Go back to HanTing for the bags", "回汉庭取行李"],
+  "ไป JOYFUL YARD Hotel": ["Go to JOYFUL YARD Hotel", "前往溢喜小院酒店"],
+  "ทางที่ 1: Metro สาย 2 ไปสนามบินผู่ตง (1 ชม.)": ["Option 1: Metro Line 2 to Pudong Airport (1 h)", "方案1：地铁2号线到浦东机场（1小时）"],
+  "T1: นอกประตู 6 ชั้น 3 · T2: นอกประตู 26 ชั้น 3": ["T1: outside gate 6, 3F · T2: outside gate 26, 3F", "T1：3楼6号门外 · T2：3楼26号门外"],
+  "ทางที่ 2: DiDi ตรงไปโรงแรม (40 นาที)": ["Option 2: DiDi straight to the hotel (40 min)", "方案2：滴滴直达酒店（40分钟）"],
+  "ทางที่ 3: Metro สาย 2 ไปสถานี Yuandong Ave. แล้วต่อ DiDi": ["Option 3: Metro Line 2 to Yuandong Ave., then DiDi", "方案3：地铁2号线到远东大道站，再打滴滴"],
+  "ขึ้นรถของโรงแรมไป Disneyland": ["Hotel shuttle to Disneyland", "乘酒店班车去迪士尼"],
+  "สวนเปิด 08:30–20:00": ["Park open 08:30–20:00", "乐园开放 08:30–20:00"],
+  "ตั๋วเข้าสวน (1 วัน)": ["Park tickets (1 day)", "门票（1日）"],
+  "เข้าสวนด้วยพาสปอร์ต": ["Enter with your passport", "凭护照入园"],
+  "เล่มที่ใช้จอง ต้องพกไปทั้งสองคน": ["the one used to book; both of you must bring it", "需用预订时的护照，两人都要带"],
+  "GAL: ดูในแอป Trip.com": ["GAL: see the Trip.com app", "GAL：请在 Trip.com 查看"],
+  "ตั๋วยกเลิกหรือคืนเงินไม่ได้": ["Tickets can't be cancelled or refunded", "门票不可取消或退款"],
+  "โชว์": ["Shows", "演出"],
+  "Mickey’s Storybook Adventure: กด Standby Pass ในแอป Disney": ["Mickey’s Storybook Adventure: get a Standby Pass in the Disney app", "米奇童话专列：在迪士尼应用领取预约等候卡"],
+  "โชว์ปิดท้ายตอนกลางคืน": ["Night-time finale show", "夜间压轴演出"],
+  "อยู่ในพื้นที่ Shanghai Disney Resort": ["Inside Shanghai Disney Resort", "位于上海迪士尼度假区内"],
+  "กลับบ้าน": ["Going home", "回家"],
+  "ตื่นนอน + อาหารเช้า": ["Wake up + breakfast", "起床 + 早餐"],
+  "อาหารเช้าเปิด 05:30–09:30": ["Breakfast 05:30–09:30", "早餐 05:30–09:30"],
+  "เช็กเอาต์": ["Check out", "退房"],
+  "เก็บกระเป๋า แล้วถามพนักงานว่ารถรับส่งจอดตรงไหน": ["Pack, then ask staff where the shuttle stops", "收拾行李，问工作人员班车在哪里上车"],
+  "รถฟรีของโรงแรม → สนามบินผู่ตง": ["Free hotel shuttle → Pudong Airport", "酒店免费班车 → 浦东机场"],
+  "ซื้อของฝาก": ["Buy souvenirs", "买伴手礼"],
+  "บิน FM839 PVG → BKK": ["Flight FM839 PVG → BKK", "航班 FM839 浦东 → 曼谷"],
+  "ถึงสุวรรณภูมิ (เวลาไทย)": ["Arrive at Suvarnabhumi (Thai time)", "抵达素万那普（泰国时间）"],
+  "เปิดหน้าจ่ายเงิน": ["Payment code", "付款码"],
+  "เปิดแอป ": ["Open app", "打开"],
+  "เรียกรถ": ["Ride", "打车"],
+  "แผนที่": ["Maps", "地图"],
+  "โรงแรม / ตั๋ว": ["Hotels / tickets", "酒店 / 门票"],
+  "ใบตอบรับเข้าประเทศจีน · ตม. อู่ฮั่น": ["China entry declaration receipt · Wuhan immigration", "外国人入境填报回执 · 武汉口岸"],
+  "ตั๋วเครื่องบิน (E-itinerary)": ["Flight tickets (e-itinerary)", "机票行程单"],
+  "ไป-กลับ ทั้งสองคน · 4 หน้า": ["Round trip, both travellers · 4 pages", "往返 · 两人 · 4页"],
+  "ใบจอง HanTing Hotel": ["HanTing Hotel booking", "汉庭酒店预订单"],
+  "ใบจอง JOYFUL YARD Hotel": ["JOYFUL YARD Hotel booking", "溢喜小院酒店预订单"],
+  "25–27 ต.ค. · อังกฤษ + จีน": ["25–27 Oct · English + Chinese", "10月25–27日 · 英文 + 中文"],
+  "ตั๋ว Disney": ["Disney ticket", "迪士尼门票"],
+  "26 ต.ค. · เข้าด้วยพาสปอร์ต": ["26 Oct · enter with passport", "10月26日 · 凭护照入园"],
+  "พื้นฐาน": ["Basics", "基础"],
+  "ตัวเลข": ["Numbers", "数字"],
+  "น้ำแข็ง & เครื่องดื่ม": ["Ice & drinks", "冰块和饮料"],
+  "ร้านอาหาร": ["Restaurant", "餐厅"],
+  "ซื้อของ": ["Shopping", "购物"],
+  "เดินทาง": ["Getting around", "交通"],
+  "โรงแรม": ["Hotel", "酒店"],
+  "ฉุกเฉิน": ["Emergency", "紧急"],
+  "เบอร์ฉุกเฉินในจีน: ตำรวจ 110 · รถพยาบาล 120 · ดับเพลิง 119": ["Emergency numbers in China: police 110 · ambulance 120 · fire 119", "中国紧急电话：报警 110 · 急救 120 · 火警 119"],
+  "สวัสดี": ["Hello"], "ขอบคุณ": ["Thank you"], "ไม่เป็นไร (ตอบคำขอบคุณ)": ["You're welcome"], "ขอโทษ": ["Sorry"],
+  "ขอโทษนะ / ขอทางหน่อย": ["Excuse me"], "ใช่ / ไม่ใช่": ["Yes / no"], "เอา / ไม่เอา": ["I want it / I don't want it"],
+  "มี / ไม่มี": ["Have / don't have"], "ไม่เป็นไร ไม่ต้อง ขอบคุณ (ปฏิเสธ)": ["No thanks (to decline)"], "ฟังไม่เข้าใจ": ["I don't understand"],
+  "ฉันเป็นคนไทย": ["I'm Thai"], "พูดภาษาอังกฤษได้ไหม": ["Do you speak English?"], "รอสักครู่": ["One moment please"],
+  "ถ่ายรูปให้หน่อยได้ไหม": ["Could you take a photo of us?"],
+  "ใส่น้ำแข็ง": ["With ice"], "ใส่น้ำแข็งเยอะๆ": ["Lots of ice"], "ขอน้ำแข็งเยอะหน่อย": ["A bit more ice please"], "ขอน้ำแข็งเพิ่ม": ["More ice please"],
+  "ขอน้ำแข็งแก้วนึงได้ไหม": ["Could I have a cup of ice?"], "น้ำแข็งปกติ": ["Normal ice"], "น้ำแข็งน้อย": ["Less ice"], "ไม่ใส่น้ำแข็ง": ["No ice"],
+  "ขอน้ำเย็น (ที่จีนชอบให้น้ำอุ่น)": ["Cold water please (warm water is the default in China)"], "หวานปกติ / หวานครึ่ง / หวานน้อย": ["Full / half / less sugar"],
+  "ไม่หวาน": ["No sugar"], "แก้วใหญ่": ["Large cup"],
+  "2 คน": ["Table for 2"], "ขอเมนูหน่อย": ["Menu please"], "เอาอันนี้ (ชี้เมนู)": ["I'll have this (point at the menu)"], "ไม่เผ็ด": ["Not spicy"],
+  "เผ็ดนิดเดียว": ["Mildly spicy"], "ไม่ใส่ผักชี": ["No coriander"], "ไม่ใส่ต้นหอม": ["No spring onion"], "อร่อยมาก": ["Delicious"],
+  "ห่อกลับบ้าน": ["To take away"], "เช็กบิล": ["The bill please"],
+  "ราคาเท่าไร": ["How much?"], "แพงไป": ["Too expensive"], "ลดหน่อยได้ไหม": ["Can you give a discount?"],
+  "จ่ายด้วย Alipay ได้ไหม": ["Can I pay with Alipay?"], "จ่ายด้วย WeChat ได้ไหม": ["Can I pay with WeChat?"], "รูดบัตรได้ไหม": ["Can I pay by card?"],
+  "มีสีอื่นไหม": ["Other colours?"], "ขอถุงด้วย": ["A bag please"], "ดูก่อนนะ": ["Just looking"],
+  "ช่วยพาไปที่นี่ (ชี้ที่อยู่)": ["Please take me here (show the address)"], "จอดตรงนี้": ["Stop here"], "สถานีรถไฟใต้ดินอยู่ไหน": ["Where is the metro station?"],
+  "ห้องน้ำอยู่ไหน": ["Where is the toilet?"], "ไปสนามบินผู่ตง": ["To Pudong Airport"], "ไปดิสนีย์แลนด์": ["To Disneyland"],
+  "ใช้เวลานานเท่าไร": ["How long does it take?"], "ฉันหลงทาง": ["I'm lost"],
+  "ฉันจองไว้แล้ว": ["I have a reservation"], "เช็กอิน": ["Check in"], "ฝากกระเป๋าได้ไหม": ["Can I leave my luggage?"],
+  "อาหารเช้ากี่โมง": ["What time is breakfast?"], "รถรับส่งไปสนามบินกี่โมง": ["What time is the airport shuttle?"],
+  "รถไปดิสนีย์ขึ้นตรงไหน": ["Where do I catch the Disney shuttle?"], "รหัสไวไฟคืออะไร": ["What's the Wi-Fi password?"],
+  "ช่วยด้วย!": ["Help!"], "ฉันไม่สบาย": ["I don't feel well"], "ร้านขายยาอยู่ไหน": ["Where is a pharmacy?"],
+  "ช่วยเรียกรถพยาบาลให้หน่อย": ["Please call an ambulance"], "กระเป๋าเงินหาย": ["I lost my wallet"], "พาสปอร์ตหาย": ["I lost my passport"],
+  "2 อัน / 2 แก้ว (นับของใช้ 两 ไม่ใช้ 二)": ["2 items / 2 cups (use 两 not 二 when counting things)"], "1 แก้ว": ["1 cup"],
+  "… หยวน (ภาษาพูด)": ["… yuan (spoken)"], "35 หยวน": ["35 yuan"], "กี่โมง": ["What time?"],
+  "พาสปอร์ต": ["Passport", "护照"],
+  "เงินสด (แลกไว้ 1,000 บาท)": ["Cash (1,000 THB exchanged)", "现金（已换1,000泰铢）"],
+  "Travel card (5,000 บาท)": ["Travel card (5,000 THB)", "旅行卡（5,000泰铢）"],
+  "Arrival card (เปิดในมือถือ/พิมพ์ไว้)": ["Arrival card (on phone or printed)", "入境卡（手机或打印）"],
+  "ปลั๊กแปลง + พาวเวอร์แบงก์ (ห้ามใส่กระเป๋าโหลด)": ["Plug adapter + power bank (not in checked bags)", "转换插头 + 充电宝（不可托运）"],
+  "Amap (高德地图) ใช้ดูแผนที่": ["Amap (高德地图) for maps", "高德地图：看地图"],
+  "DiDi ใช้เรียกรถ": ["DiDi for rides", "滴滴：打车"],
+  "Trip.com ใช้ดูโรงแรมและตั๋วพิพิธภัณฑ์": ["Trip.com for hotels and museum tickets", "Trip.com：酒店和美术馆门票"],
+  "Shanghai Disney Resort ใช้กด Standby Pass": ["Shanghai Disney Resort for Standby Passes", "上海迪士尼度假区：领取预约等候卡"],
+  "Alipay / WeChat Pay ใช้จ่ายเงิน": ["Alipay / WeChat Pay for payments", "支付宝 / 微信支付：付款"],
+  "กรอก Arrival card ออนไลน์ (ภายใน 7 วันก่อนถึง)": ["Fill in the arrival card online (within 7 days of arrival)", "在线填写入境卡（抵达前7天内）"],
+  "ซื้อตั๋ว Museum of Art Pudong ใน Trip.com": ["Buy Museum of Art Pudong tickets on Trip.com", "在 Trip.com 购买浦东美术馆门票"],
+  "เปิดใช้ E-Sim": ["Activate the eSIM", "激活 eSIM"],
+  "ผูก Travel card กับ Alipay/WeChat": ["Link the travel card to Alipay/WeChat", "把旅行卡绑定到支付宝/微信"],
+  "แสดงให้คนขับ": ["Show the driver", "给司机看"],
+  "ดูรูป": ["Photos", "图片"],
+  "กดที่คำเพื่อขึ้นตัวจีนใหญ่เต็มจอให้อีกฝ่ายอ่าน": ["Tap a phrase to show it full screen in Chinese", "点击短语可全屏显示中文"],
+  "กดปุ่มกลมเพื่อฟังเสียง": ["tap the round button to hear it", "点圆形按钮可播放读音"],
+  "ภาษาจีน · 中文": ["Chinese · 中文", "中文"],
+  "เปิด": ["Open", "打开"],
+  "หน้า": ["page", "页"],
+  "Metro สาย": ["Metro Line", "地铁"],
+  "วันนี้": ["Today", "今天"],
+  "ตั๋วเครื่องบิน": ["Flight tickets", "机票"],
+  "ใช้ได้ทั้งขาไปและขากลับ · ต้องใช้ตั๋วตามลำดับเที่ยวบิน": ["Valid for both directions · flights must be used in order", "往返通用 · 须按顺序使用航段"],
+  "ดูใบ E-itinerary": ["View e-itinerary", "查看行程单"],
+  "น้ำหนักกระเป๋า (ต่อคน ทุกเที่ยว)": ["Baggage (per person, every flight)", "行李额度（每人每段）"],
+  "ต่อเครื่องที่อู่ฮั่นไม่ต้องรับกระเป๋า (Baggage checked through)": ["No need to collect bags in Wuhan (checked through)", "武汉转机行李直挂，无需提取"],
+  "สายการบิน": ["Airline", "航空公司"],
+  "ที่นั่ง แถว": ["Seat row", "座位排"],
+  "ยืนยัน": ["Confirmation", "确认号"],
+  "ที่อยู่": ["Address", "地址"],
+  "โทร": ["Phone", "电话"],
+  "อีเมล": ["Email", "邮箱"],
+  "ใกล้": ["Notes", "备注"],
+  "ดูใบจองโรงแรม": ["View hotel booking", "查看酒店预订单"],
+  "วันก่อนออกเดินทาง": ["days to go", "天后出发"],
+  "ออกจากบ้าน พฤ 22 ต.ค. 20:00": ["Leave home Thu 22 Oct, 20:00", "10月22日（周四）20:00 出发"],
+  "เที่ยวให้สนุกนะ!": ["Have a great trip!", "旅途愉快！"],
+  "จบทริปแล้ว": ["Trip finished", "旅行结束"],
+  "ไม่มีรายการแล้ว": ["Nothing left on the plan", "没有更多行程"],
+  "อื่นๆ / ก่อนเดินทาง": ["Other / before the trip", "其他 / 出发前"],
+  "ใส่ชื่อของที่ซื้อก่อน": ["Enter what you bought first", "请先填写买了什么"],
+  "ใส่ราคาเป็นหยวนให้มากกว่า 0": ["Enter a price in yuan above 0", "请输入大于0的人民币价格"],
+  "พื้นที่เก็บข้อมูลเต็ม ลองลบรายการเก่าออกบ้าง": ["Storage is full. Delete some old expenses.", "存储已满，请删除一些旧记录。"],
+  "บันทึกไม่สำเร็จ ลองใหม่อีกครั้ง": ["Couldn't save. Try again.", "保存失败，请重试。"],
+  "แก้ไขรายการ": ["Edit expense", "编辑记录"],
+  "บันทึกการแก้ไข": ["Save changes", "保存修改"],
+  "เคลียร์กันครบแล้ว ไม่มีใครติดใคร": ["All settled, nobody owes anything", "已结清，互不相欠"],
+  "อื่นๆ": ["Other", "其他"],
+  "ลบรายการนี้?": ["Delete this expense?", "删除这条记录？"],
+  "ลบเลย": ["Delete", "删除"],
+  "ไม่ลบ": ["Keep", "保留"],
+  "แก้ไข": ["Edit", "编辑"],
+  "ลบ": ["Delete", "删除"],
+  "เก็บในเครื่องนี้": ["Saved on this phone", "保存在本机"],
+  "แชร์กันทั้งสองคน": ["Shared by both", "两人共享"],
+  "เชื่อมต่อไม่ได้": ["Can't connect", "无法连接"],
+  "เปิดรูปเอกสารนี้ไม่ได้ ให้เปิดไฟล์ PDF ในเครื่องแทน": ["Couldn't open this document image. Open the PDF on your phone instead.", "无法打开此证件图片，请改用手机里的 PDF 文件。"]
+};
+const WD = { "จ": ["Mon", "周一"], "อ": ["Tue", "周二"], "พ": ["Wed", "周三"], "พฤ": ["Thu", "周四"], "ศ": ["Fri", "周五"], "ส": ["Sat", "周六"], "อา": ["Sun", "周日"],
+  "จันทร์": ["Mon", "周一"], "อังคาร": ["Tue", "周二"], "พุธ": ["Wed", "周三"], "พฤหัส": ["Thu", "周四"], "ศุกร์": ["Fri", "周五"], "เสาร์": ["Sat", "周六"], "อาทิตย์": ["Sun", "周日"] };
+/* [pattern, english, chinese]; replacements may be functions of the match */
+const TR_RULES = [
+  [/(อาทิตย์|จันทร์|อังคาร|พุธ|พฤหัส|ศุกร์|เสาร์|พฤ|อา|จ|อ|พ|ศ|ส) (\d{1,2}) ต\.ค\.( \d{4})?/g, (m, w, d, y) => `${WD[w][0]} ${d} Oct${y || ""}`, (m, w, d, y) => `${y ? y.trim() + "年" : ""}10月${d}日 ${WD[w][1]}`],
+  [/(\d{1,2})–(\d{1,2}) ต\.ค\.( \d{4})?/g, (m, a, b, y) => `${a}–${b} Oct${y || ""}`, (m, a, b, y) => `${y ? y.trim() + "年" : ""}10月${a}–${b}日`],
+  [/(\d{1,2}) ต\.ค\./g, "$1 Oct", "10月$1日"],
+  [/^ที่พัก (\d+) · (\d+) คืน$/, "Hotel $1 · $2 nights", "住宿 $1 · $2 晚"],
+  [/^รวม (\d+) รายการ/, "Total $1 items", "共 $1 项"],
+  [/^(.+) ต้องโอนให้ (.+)$/, "$1 owes $2", "$1 需转给 $2"],
+  [/ของ (\S+) ทั้งหมด/, "all $1's", "全部归 $1"],
+  [/^เข้า /, "In ", "入住 "],
+  [/^ออก /, "Out ", "退房 "]
+];
+/* short words like ของ or วัน are too ambiguous to swap inside longer text */
+const TR_FRAG = Object.keys(TR).filter(k => k.length >= 4).sort((a, b) => b.length - a.length);
+const THAI = /[ก-ฺเ-๛]/;
+const LANGS = { th: "ไทย", en: "EN", zh: "中文" };
+let LANG = store.get("sh-lang", "th");
+if (!LANGS[LANG]) LANG = "th";
+function trText(s) {
+  if (LANG === "th" || !THAI.test(s)) return s;
+  const i = LANG === "en" ? 0 : 1;
+  const pick = v => (v[i] !== undefined ? v[i] : v[0]);
+  const lead = s.match(/^\s*/)[0], tail = s.match(/\s*$/)[0];
+  let key = s.trim();
+  if (TR[key]) return lead + pick(TR[key]) + tail;
+  const bare = key.replace(/^[·:,\s]+|[·:,\s]+$/g, "");
+  if (TR[bare]) return lead + key.replace(bare, pick(TR[bare])) + tail;
+  for (const r of TR_RULES) key = key.replace(r[0], r[1 + i]);
+  if (THAI.test(key) && TR[key.trim()]) key = pick(TR[key.trim()]);
+  if (THAI.test(key)) for (const k of TR_FRAG) {
+    if (key.includes(k)) { key = key.split(k).join(pick(TR[k])); if (!THAI.test(key)) break; }
+  }
+  return lead + key + tail;
+}
+const NOTR = ".rd, .cn, .zh, [data-notr], [data-name], script, style";
+const TR_ATTRS = ["placeholder", "aria-label", "title", "alt"];
+function trTree(root) {
+  if (!root) return;
+  if (root.nodeType === 3) { trTextNode(root); return; }
+  if (root.nodeType !== 1 || root.closest(NOTR)) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = []; let n; while ((n = w.nextNode())) nodes.push(n);
+  nodes.forEach(trTextNode);
+  [root, ...root.querySelectorAll("[placeholder],[aria-label],[title],[alt]")].forEach(el => {
+    if (el.closest(NOTR)) return;
+    TR_ATTRS.forEach(a => {
+      if (!el.hasAttribute(a)) return;
+      el.__tha = el.__tha || {};
+      if (el.__tha[a] === undefined) { const v = el.getAttribute(a); if (!THAI.test(v)) return; el.__tha[a] = v; }
+      const v = trText(el.__tha[a]); if (el.getAttribute(a) !== v) el.setAttribute(a, v);
+    });
+  });
+}
+function trTextNode(t) {
+  const p = t.parentElement; if (!p || p.closest(NOTR)) return;
+  if (t.__th === undefined) { if (!THAI.test(t.nodeValue)) return; t.__th = t.nodeValue; }
+  const v = trText(t.__th); if (t.nodeValue !== v) t.nodeValue = v;
+}
+new MutationObserver(ms => {
+  if (LANG === "th") return;
+  ms.forEach(m => m.addedNodes.forEach(trTree));
+}).observe(document.body, { childList: true, subtree: true });
+function setLang(l) {
+  LANG = LANGS[l] ? l : "th"; store.set("sh-lang", LANG);
+  document.body.dataset.lang = LANG;
+  document.documentElement.lang = { th: "th", en: "en", zh: "zh-CN" }[LANG];
+  $("#lang-cur").textContent = LANGS[LANG];
+  document.querySelectorAll("#lang-menu [data-lang]").forEach(b => b.setAttribute("aria-checked", b.dataset.lang === LANG));
+  trTree(document.body);
+}
+$("#lang-btn").onclick = e => {
+  e.stopPropagation();
+  const open = $("#lang-menu").hidden; $("#lang-menu").hidden = !open; $("#lang-btn").setAttribute("aria-expanded", open);
+};
+$("#lang-menu").addEventListener("click", e => {
+  const b = e.target.closest("[data-lang]"); if (!b) return;
+  $("#lang-menu").hidden = true; $("#lang-btn").setAttribute("aria-expanded", "false"); setLang(b.dataset.lang);
+});
+document.addEventListener("click", e => { if (!e.target.closest(".lang-wrap")) { $("#lang-menu").hidden = true; $("#lang-btn").setAttribute("aria-expanded", "false"); } });
+
+/* ---------- tabs ---------- */
+const VIEWS = ["home", "plan", "fly", "stay", "pay", "zh", "prep"];
+function show(v) {
+  if (!VIEWS.includes(v)) v = "home";
+  VIEWS.forEach(x => { $("#v-" + x).hidden = x !== v; });
+  document.querySelectorAll("nav.tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.v === v));
+  document.body.dataset.tab = v;
+  store.set("sh-tab", v); window.scrollTo(0, 0);
+}
+document.querySelectorAll("nav.tabs button").forEach(b => b.onclick = () => show(b.dataset.v));
+
+/* ---------- traveller names ---------- */
+$("#n-sea").value = NAMES.sea; $("#n-fluke").value = NAMES.fluke;
+["sea", "fluke"].forEach(p => $("#n-" + p).addEventListener("change", () => {
+  NAMES[p] = $("#n-" + p).value.trim() || (p === "sea" ? "Sea" : "Fluke");
+  store.set("sh-names", { sea: NAMES.sea, fluke: NAMES.fluke });
+  fillNames(); fillFaces(); $("#duo").innerHTML = avatar("sea", 48) + avatar("fluke", 48); renderExp(); renderFlights(); renderDocs();
+}));
+
+fillNames(); fillFaces(); setSplit(50); updThb(); initExp(); renderDocs(); renderZh();
+renderDays(); renderFlights(); renderHotels(); renderHome();
+renderList($("#list-pack"), PACK, "sh-pack"); renderList($("#list-apps"), APPS, "sh-apps"); renderList($("#list-todo"), TODO, "sh-todo");
+show(location.hash.slice(1) || store.get("sh-tab", "home"));
+setLang(LANG);
+setInterval(renderHome, 30000);
+</script>
+<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => { navigator.serviceWorker.register("sw.js").catch(() => {}); }); }</script></body></html>
